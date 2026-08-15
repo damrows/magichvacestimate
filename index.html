@@ -151,14 +151,27 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
 #calSuccess p { font-size:14px; color:#475569; margin-bottom:8px; line-height:1.5; }
 #calSuccess a { color:#0057b7; font-weight:700; }
 .btn-done { margin-top:20px; padding:14px 32px; background:#0057b7; color:#fff; border:none; border-radius:12px; font-size:16px; font-weight:700; cursor:pointer; font-family:inherit; }
-@media(max-width:480px){.step-card{padding:20px 16px;}.opt-grid{grid-template-columns:1fr;}}
+@media(max-width:480px){
+  .step-card{padding:20px 16px;}
+  .opt-grid{grid-template-columns:1fr;}
+  .opt-btn{padding:12px 8px;}
+  .opt-icon{font-size:22px;margin-bottom:6px;}
+  .opt-label{font-size:12px;}
+  .opt-desc{font-size:10px;}
+  /* Ductwork two-option screen stays side by side on mobile */
+  #s4-duct .opt-grid{grid-template-columns:1fr 1fr;}
+  #s4-duct .opt-btn{padding:14px 10px;}
+  #s4-duct .opt-icon{font-size:24px;}
+  #s4-duct .opt-label{font-size:13px;}
+  #s4-duct .opt-desc{font-size:11px;}
+}
 </style>
 </head>
 <body>
 
 <header id="site-header">
   <div class="logo-wrap">
-    <img src="/Logo_HVAC_trimmed.png" alt="Magic Plumbing" style="height:40px;width:auto;display:block;" onerror="this.outerHTML='<div style=&quot;display:flex;align-items:center;gap:10px&quot;><div class=&quot;logo-m&quot;>M</div><div><div class=&quot;logo-text&quot;>Magic Plumbing</div><div class=&quot;logo-sub&quot;>Heating &amp; Cooling</div></div></div>'">
+    <img src="/estimate/Logo_HVAC_trimmed.png" alt="Magic Plumbing" style="height:40px;width:auto;display:block;" onerror="this.outerHTML='<div style=&quot;display:flex;align-items:center;gap:10px&quot;><div class=&quot;logo-m&quot;>M</div><div><div class=&quot;logo-text&quot;>Magic Plumbing</div><div class=&quot;logo-sub&quot;>Heating &amp; Cooling</div></div></div>'">
   </div>
   <div class="header-phone">
     <a href="tel:+18007800110">&#128222; (800)&nbsp;780-0110</a>
@@ -253,34 +266,37 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
 
     <div id="s4" style="display:none">
       <div class="step-card">
-        <h2 id="s4-title">What&#8217;s the installation situation?</h2>
-        <p class="sub" id="s4-sub">This helps us give you an accurate price.</p>
-        <!-- Main situation buttons -->
-        <div class="opt-grid" id="s4-main">
-          <button class="opt-btn" data-val="straight_swap" onclick="pickSituation('straight_swap',this)">
-            <span class="opt-icon">&#9989;</span>
-            <div class="opt-label">Straight Swap</div>
-            <div class="opt-desc">Replacing an existing unit</div>
-          </button>
-          <button class="opt-btn" data-val="needs_ductwork" onclick="pickSituation('needs_ductwork',this)">
-            <span class="opt-icon">&#128679;</span>
-            <div class="opt-label">Needs Ductwork</div>
-            <div class="opt-desc">Includes full duct replacement + HERS test</div>
-          </button>
-          <button class="opt-btn" data-val="new_install" onclick="pickSituation('new_install',this)">
-            <span class="opt-icon">&#127968;</span>
-            <div class="opt-label">New Install</div>
-            <div class="opt-desc">No existing system</div>
-          </button>
-          <button class="opt-btn" data-val="emergency" onclick="pickSituation('emergency',this)">
-            <span class="opt-icon">&#128680;</span>
-            <div class="opt-label">Emergency</div>
-            <div class="opt-desc">System failed &mdash; need it fast</div>
-          </button>
+        <!-- Main: 4 situation options -->
+        <div id="s4-main">
+          <h2>What&#8217;s the installation situation?</h2>
+          <p class="sub">This helps us give you an accurate price.</p>
+          <div class="opt-grid">
+            <button class="opt-btn" data-val="straight_swap" onclick="pickSituation('straight_swap',this)">
+              <span class="opt-icon">&#9989;</span>
+              <div class="opt-label">Straight Swap</div>
+              <div class="opt-desc">Replacing an existing unit</div>
+            </button>
+            <button class="opt-btn" data-val="needs_ductwork" onclick="pickSituation('needs_ductwork',this)">
+              <span class="opt-icon">&#128679;</span>
+              <div class="opt-label">Needs Ductwork</div>
+              <div class="opt-desc">Includes full duct replacement + HERS test</div>
+            </button>
+            <button class="opt-btn" data-val="new_install" onclick="pickSituation('new_install',this)">
+              <span class="opt-icon">&#127968;</span>
+              <div class="opt-label">New Install</div>
+              <div class="opt-desc">No existing system</div>
+            </button>
+            <button class="opt-btn" data-val="emergency" onclick="pickSituation('emergency',this)">
+              <span class="opt-icon">&#128680;</span>
+              <div class="opt-label">Emergency</div>
+              <div class="opt-desc">System failed &mdash; need it fast</div>
+            </button>
+          </div>
         </div>
-        <!-- New Install ductwork follow-up (hidden until New Install picked) -->
-        <div id="s4-duct" style="display:none;margin-top:20px;">
-          <p style="font-weight:600;color:#1a1a2e;margin-bottom:12px;">Does the home have existing ductwork?</p>
+        <!-- New Install only: ductwork question replaces above entirely -->
+        <div id="s4-duct" style="display:none;">
+          <h2>Does the home have existing ductwork?</h2>
+          <p class="sub">This determines whether duct installation is included in your price.</p>
           <div class="opt-grid">
             <button class="opt-btn" onclick="pickNewInstallDuct(false,this)">
               <span class="opt-icon">&#10060;</span>
@@ -354,7 +370,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
 
     <!-- Trust header -->
     <div class="res-trust">
-      <div class="res-trust-logo"><img src="/Logo_HVAC_trimmed.png" alt="Magic Plumbing" onerror="this.parentElement.innerHTML='<div style=\'width:52px;height:52px;background:#0057b7;border-radius:10px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:22px;font-weight:900\'>M</div>'"></div>
+      <div class="res-trust-logo"><img src="/estimate/Logo_HVAC_trimmed.png" alt="Magic Plumbing" onerror="this.parentElement.innerHTML='<div style=\'width:52px;height:52px;background:#0057b7;border-radius:10px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:22px;font-weight:900\'>M</div>'"></div>
       <div>
         <div class="res-trust-name">Magic Plumbing, Heating &amp; Cooling</div>
         <div class="res-trust-sub">Serving the San Francisco Bay Area since 2002</div>
@@ -451,7 +467,7 @@ var __apiCache = {}; // Cache API responses
 function fetchPricing(cb) {
   var cacheKey = A.service + '|' + (A.sqft||'') + '|' + (A.rooms||'') + '|' + (A.current||'');
   if (__apiCache[cacheKey]) { cb(__apiCache[cacheKey]); return; }
-  var apiUrl = window.location.origin + '/api/price';
+  var apiUrl = window.location.origin + '/estimate/api/price';
   var apiBody = JSON.stringify({ service: A.service, sqft: A.sqft, rooms: A.rooms, current: A.current, dev: isDevMode() });
   var xhr = new XMLHttpRequest();
   xhr.open('POST', apiUrl, true);
@@ -462,11 +478,18 @@ function fetchPricing(cb) {
       __apiCache[cacheKey] = data;
       cb(data);
     } catch(e) {
+      alert('PARSE ERROR: ' + e + '\nResponse: ' + xhr.responseText.slice(0,300));
       cb(null);
     }
   };
-  xhr.onerror = function() { cb(null); };
-  xhr.ontimeout = function() { cb(null); };
+  xhr.onerror = function() {
+    alert('XHR NETWORK ERROR: status=' + xhr.status + ' readyState=' + xhr.readyState + ' url=' + apiUrl);
+    cb(null);
+  };
+  xhr.ontimeout = function() {
+    alert('XHR TIMEOUT: url=' + apiUrl);
+    cb(null);
+  };
   xhr.send(apiBody);
 }
 // ─── STATE ───────────────────────────────────────────────────────────────────
@@ -562,14 +585,12 @@ var calYear, calMonth, calSelectedDate, calSelectedTime;
 
 // ─── NAVIGATION ───────────────────────────────────────────────────────────────
 function showStep(n) {
-  // Reset S4 follow-up when navigating to it fresh
+  // Reset S4 when navigating to it fresh — always show main 4 buttons
   if (n === 4) {
+    var mainDiv = document.getElementById('s4-main');
     var ductDiv = document.getElementById('s4-duct');
+    if (mainDiv) mainDiv.style.display = 'block';
     if (ductDiv) ductDiv.style.display = 'none';
-    var title = document.getElementById('s4-title');
-    if (title) title.textContent = "What's the installation situation?";
-    var sub = document.getElementById('s4-sub');
-    if (sub) sub.textContent = 'This helps us give you an accurate price.';
     var btns = document.querySelectorAll('#s4-main .opt-btn, #s4-duct .opt-btn');
     for (var i = 0; i < btns.length; i++) btns[i].style.borderColor = '';
   }
@@ -629,13 +650,13 @@ function pickSituation(val, btn) {
   btn.style.borderColor = '#0057b7';
 
   if (val === 'new_install') {
-    // Show ductwork follow-up inline, don't advance yet
+    // Hide all 4 main buttons, show ONLY the two ductwork options
+    document.getElementById('s4-main').style.display = 'none';
     document.getElementById('s4-duct').style.display = 'block';
-    document.getElementById('s4-title').textContent = 'New Install — one more question';
-    document.getElementById('s4-sub').textContent = 'This affects your total price.';
     A.current = 'new_install';
   } else {
     // All other situations advance immediately
+    document.getElementById('s4-main').style.display = 'block';
     document.getElementById('s4-duct').style.display = 'none';
     A.current = val;
     setTimeout(function() { showStep(5); }, 220);
@@ -863,7 +884,7 @@ function renderDetail() {
   html += '<div class="det-mo"><div class="det-mo-num">$' + mo699 + '</div><div class="det-mo-unit">/mo</div></div>';
   html += '<div style="font-size:11px;color:#94a3b8;font-weight:400;margin-top:2px;">per month</div>';
   html += '<div class="det-mo-terms">12 years &middot; 6.99% APR &middot; financing subject to approval</div>';
-  html += '</div><div class="det-house"><img src="/paul-hero.png" alt="Magic Plumbing Tech"></div></div>';
+  html += '</div><div class="det-house"><img src="/estimate/paul-hero.png" alt="Magic Plumbing Tech"></div></div>';
   html += '<hr class="det-sep">';
   html += '<div class="det-range-row">';
   html += '<div class="det-range"><div class="label">Price Range</div><div class="val">' + fmt(lowD) + ' \u2013 ' + fmt(highD) + '</div></div>';
@@ -991,12 +1012,50 @@ function pickSlot(btn) {
 function confirmAppointment() {
   if (!calSelectedDate || !calSelectedTime) return;
   var dateStr = calSelectedDate.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'});
+  var shortDate = calSelectedDate.toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'});
+
+  // Show success immediately — don't make customer wait on network
   document.getElementById('calSuccessName').textContent = A.name || 'there';
   document.getElementById('calSuccessDate').textContent = dateStr;
   document.getElementById('calSuccessTime').textContent = calSelectedTime;
   document.getElementById('calSuccessPhone').textContent = A.phone || '';
   document.getElementById('calBookingForm').style.display = 'none';
   document.getElementById('calSuccess').style.display = 'block';
+
+  // Build tier summary for notification
+  var data = window.__apiData && window.__apiData.tiers;
+  var tierDefs = [{tier:'good',label:'Good'},{tier:'better',label:'Better'},{tier:'best',label:'Best'},
+                  {tier:'comfort',label:'Comfort'},{tier:'premium',label:'Premium'}];
+  var tiers = [];
+  for (var i = 0; i < tierDefs.length; i++) {
+    var td = tierDefs[i];
+    var d = data && data[td.tier];
+    if (!d || !d.sale) continue;
+    tiers.push({ tier: td.tier, label: td.label, series: d.series||'', sale: d.sale, list: d.list, monthly: d.monthly, monthly999: d.monthly999 });
+  }
+
+  // Fire notify — fully async, customer already sees success screen
+  var notifyUrl = window.location.origin + (window.location.pathname.indexOf('/estimate') === 0 ? '/estimate/api/notify' : '/api/notify');
+  var payload = {
+    name: A.name, phone: A.phone, email: A.email, zip: A.zip,
+    service: A.service, sqft: A.sqft, rooms: A.rooms, current: A.current,
+    apptDate: dateStr, apptShort: shortDate, apptTime: calSelectedTime,
+    tiers: tiers, ductwork: (window.__apiData && window.__apiData.ductwork) || 0
+  };
+  var xhr = new XMLHttpRequest();
+  xhr.open('POST', notifyUrl, true);
+  xhr.setRequestHeader('Content-Type', 'application/json');
+  xhr.onload = function() {
+    try {
+      var res = JSON.parse(xhr.responseText);
+      if (res.estimateUrl) {
+        // Update email button to send pre-built estimate link
+        var emailBtn = document.getElementById('emailEstimateBtn');
+        if (emailBtn) { emailBtn.setAttribute('data-estimate-url', res.estimateUrl); }
+      }
+    } catch(e) {}
+  };
+  xhr.send(JSON.stringify(payload));
 }
 
 function doneBooking() {
@@ -1045,7 +1104,7 @@ function emailEstimate() {
     apptDate: apptDate, apptTime: apptTime
   };
 
-  fetch('/api/email', {
+  fetch('/estimate/api/email', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(payload)
