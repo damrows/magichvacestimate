@@ -467,7 +467,8 @@ var __apiCache = {}; // Cache API responses
 function fetchPricing(cb) {
   var cacheKey = A.service + '|' + (A.sqft||'') + '|' + (A.rooms||'') + '|' + (A.current||'');
   if (__apiCache[cacheKey]) { cb(__apiCache[cacheKey]); return; }
-  var apiUrl = window.location.origin + '/estimate/api/price';
+  var isVercel = window.location.hostname.indexOf('vercel.app') !== -1;
+  var apiUrl = isVercel ? window.location.origin + '/api/price' : window.location.origin + '/estimate/api/price';
   var apiBody = JSON.stringify({ service: A.service, sqft: A.sqft, rooms: A.rooms, current: A.current, dev: isDevMode() });
   var xhr = new XMLHttpRequest();
   xhr.open('POST', apiUrl, true);
