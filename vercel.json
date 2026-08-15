@@ -1,13 +1,5 @@
 {
-  "functions": {
-    "api/price.py": { "runtime": "python3.9", "maxDuration": 10 },
-    "api/email.py": { "runtime": "python3.9", "maxDuration": 10 }
-  },
-  "routes": [
-    { "src": "/api/price", "dest": "/api/price.py" },
-    { "src": "/api/email", "dest": "/api/email.py" },
-    { "src": "/paul-hero.png", "dest": "/paul-hero.png" },
-    { "src": "/Logo_HVAC_trimmed.png", "dest": "/Logo_HVAC_trimmed.png" },
-    { "src": "/(.*)", "dest": "/index.html" }
+  "rewrites": [
+    { "source": "/((?!api/).*)", "destination": "/index.html" }
   ]
 }
