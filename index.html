@@ -191,7 +191,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
     <div id="s1" style="display:block">
       <div class="step-card">
         <h2>What service do you need?</h2>
-        <p class="sub">Select the equipment you want replaced or installed.</p>
+        <p class="sub">Get a free instant estimate in 2 minutes. Prices are based on your inputs &mdash; your comfort advisor will confirm the final number at a free in-home visit. No obligation.</p>
         <div class="opt-grid">
           <button class="opt-btn" data-val="furnace" onclick="pick('service',this.dataset.val,this)">
             <span class="opt-icon">&#128293;</span>
@@ -388,7 +388,10 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
     <!-- Headline -->
     <div class="res-headline">
       <h2 id="resHeader">Your custom options are ready.</h2>
-      <p>We matched three systems to your home size. All prices include installation, permits, and our full warranty. Pick the one that fits — no commitment until you’re ready.</p>
+      <p>We matched three systems to your home size. All prices include installation, permits, and our full warranty. Pick the one that fits &mdash; no commitment until you're ready.</p>
+      <div style="background:#eff6ff;border:1px solid #bfdbfe;border-radius:10px;padding:12px 16px;font-size:13px;color:#1e40af;margin-top:10px;line-height:1.5;">
+        &#128221; <strong>Sight-unseen estimate</strong> &mdash; these prices are based on your home size and typical installations. Your comfort advisor will measure your home and confirm the final price at your free in-home visit. No obligation to proceed.
+      </div>
     </div>
 
     <!-- Banners -->
@@ -406,14 +409,14 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
     <!-- Booking box -->
     <div class="booking-box">
       <div class="booking-box-title">Your Free In-Home Estimate</div>
-      <div class="booking-box-sub">We visit, measure your home, and give you an exact price — no surprises, no pressure, nothing to sign on the spot.</div>
+      <div class="booking-box-sub">We visit, measure your home, and give you an exact price - no surprises, no pressure, nothing to sign on the spot.</div>
 
       <button class="booking-cta" onclick="openCalendar()">Reserve This Offer →</button>
-      <div class="booking-cta-sub">Takes less than 60 seconds &middot; We’ll call to confirm your time</div>
+      <div class="booking-cta-sub">Takes less than 60 seconds &middot; We'll call to confirm your time</div>
     </div>
 
     <a class="link-back" href="#" onclick="resetA();showStep(1);return false;">&#8592; Start Over</a>
-    <div class="res-disclaimer">Every home is different. Pricing above is a starting estimate based on your home size — final pricing is confirmed at your free in-home visit, with no obligation to proceed. CA License #698806</div>
+    <div class="res-disclaimer">Every home is different. Pricing above is a starting estimate based on your home size &mdash; final pricing is confirmed at your free in-home visit, with no obligation to proceed. CA License #698806</div>
 
   </div><!-- #results -->
 
@@ -440,10 +443,10 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
       <div class="cal-grid" id="calGrid"></div>
       <div id="calTimeSlots" style="display:none;margin-top:16px">
         <div class="slots-title">Choose a time window:</div>
-        <button class="slot-btn" data-time="8am – 10am" onclick="pickSlot(this)">&#9728; Morning &nbsp;&nbsp; 8am – 10am</button>
-        <button class="slot-btn" data-time="10am – 12pm" onclick="pickSlot(this)">&#9728; Late Morning &nbsp;&nbsp; 10am – 12pm</button>
-        <button class="slot-btn" data-time="12pm – 2pm" onclick="pickSlot(this)">&#9749; Afternoon &nbsp;&nbsp; 12pm – 2pm</button>
-        <button class="slot-btn" data-time="2pm – 4pm" onclick="pickSlot(this)">&#9786; Late Afternoon &nbsp;&nbsp; 2pm – 4pm</button>
+        <button class="slot-btn" data-time="8am - 10am" onclick="pickSlot(this)">&#9728; Morning &nbsp;&nbsp; 8am - 10am</button>
+        <button class="slot-btn" data-time="10am - 12pm" onclick="pickSlot(this)">&#9728; Late Morning &nbsp;&nbsp; 10am - 12pm</button>
+        <button class="slot-btn" data-time="12pm - 2pm" onclick="pickSlot(this)">&#9749; Afternoon &nbsp;&nbsp; 12pm - 2pm</button>
+        <button class="slot-btn" data-time="2pm - 4pm" onclick="pickSlot(this)">&#9786; Late Afternoon &nbsp;&nbsp; 2pm - 4pm</button>
       </div>      <button id="calConfirmBtn" onclick="confirmAppointment()" disabled>Confirm Appointment</button>
     </div>
     <div id="calSuccess" style="display:none;text-align:center;padding:20px 0">
@@ -453,7 +456,10 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
       <p>&#128197; <strong id="calSuccessDate"></strong></p>
       <p>&#9200; <strong id="calSuccessTime"></strong></p>
       <p>We&#8217;ll call you at <strong id="calSuccessPhone"></strong> to confirm.</p>
-      <p>Questions? Call us: <a href="tel:+18007800110">(800) 780-0110</a></p>
+      <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:10px;padding:12px 16px;font-size:13px;color:#15803d;margin:14px 0;line-height:1.5;text-align:left;">
+        &#128205; <strong>What happens next:</strong> Your comfort advisor will visit your home, take measurements, and confirm your final price. The estimate you saw today is your starting point &mdash; no surprises, nothing to sign until you&#8217;re ready.
+      </div>
+      <p>Questions? Call us: <a href="tel:+14152266533">(415) 226-6533</a></p>
       <button class="btn-done" onclick="emailEstimate()" id="emailEstimateBtn">&#128140; Email My Estimate</button>
       <div id="emailStatus" style="font-size:13px;margin-top:10px;"></div>
     </div>
@@ -500,37 +506,37 @@ var S3_CONFIG = {
   furnace:    { title: "What's the square footage?", sub: "Choose the closest range for your home.",
     buttons: [
       { val: 'Under 800',   label: 'Under 800',   desc: 'Studio / small home' },
-      { val: '800–1,200',  label: '800–1,200',  desc: '800 to 1,200 sqft' },
-      { val: '1,200–1,800',label: '1,200–1,800',desc: '1,200 to 1,800 sqft' },
-      { val: '1,800–2,500',label: '1,800–2,500',desc: '1,800 to 2,500 sqft' },
-      { val: '2,500–3,500',label: '2,500–3,500',desc: '2,500 to 3,500 sqft' },
+      { val: '800-1,200',  label: '800-1,200',  desc: '800 to 1,200 sqft' },
+      { val: '1,200-1,800',label: '1,200-1,800',desc: '1,200 to 1,800 sqft' },
+      { val: '1,800-2,500',label: '1,800-2,500',desc: '1,800 to 2,500 sqft' },
+      { val: '2,500-3,500',label: '2,500-3,500',desc: '2,500 to 3,500 sqft' },
       { val: 'Over 3,500', label: 'Over 3,500', desc: 'Over 3,500 sqft' }
     ]
   },
   ac:         { title: "What's the square footage?", sub: "Choose the closest range for your home.",
     buttons: [
       { val: 'Under 1,200', label: 'Under 1,200', desc: 'Up to 1,200 sqft' },
-      { val: '1,200–2,000', label: '1,200–2,000', desc: '1,200 to 2,000 sqft' },
-      { val: '2,000–3,000', label: '2,000–3,000', desc: '2,000 to 3,000 sqft' },
+      { val: '1,200-2,000', label: '1,200-2,000', desc: '1,200 to 2,000 sqft' },
+      { val: '2,000-3,000', label: '2,000-3,000', desc: '2,000 to 3,000 sqft' },
       { val: 'Over 3,000',  label: 'Over 3,000',  desc: 'Over 3,000 sqft' }
     ]
   },
   heat_pump:  { title: "What's the square footage?", sub: "Choose the closest range for your home.",
     buttons: [
       { val: 'Under 800',   label: 'Under 800',   desc: 'Studio / small home' },
-      { val: '800–1,200',  label: '800–1,200',  desc: '800 to 1,200 sqft' },
-      { val: '1,200–2,000',label: '1,200–2,000',desc: '1,200 to 2,000 sqft' },
-      { val: '2,000–3,000',label: '2,000–3,000',desc: '2,000 to 3,000 sqft' },
+      { val: '800-1,200',  label: '800-1,200',  desc: '800 to 1,200 sqft' },
+      { val: '1,200-2,000',label: '1,200-2,000',desc: '1,200 to 2,000 sqft' },
+      { val: '2,000-3,000',label: '2,000-3,000',desc: '2,000 to 3,000 sqft' },
       { val: 'Over 3,000', label: 'Over 3,000', desc: 'Over 3,000 sqft' }
     ]
   },
   full_system:{ title: "What's the square footage?", sub: "Choose the closest range for your home.",
     buttons: [
       { val: 'Under 800',   label: 'Under 800',   desc: 'Studio / small home' },
-      { val: '800–1,200',  label: '800–1,200',  desc: '800 to 1,200 sqft' },
-      { val: '1,200–1,800',label: '1,200–1,800',desc: '1,200 to 1,800 sqft' },
-      { val: '1,800–2,500',label: '1,800–2,500',desc: '1,800 to 2,500 sqft' },
-      { val: '2,500–3,500',label: '2,500–3,500',desc: '2,500 to 3,500 sqft' },
+      { val: '800-1,200',  label: '800-1,200',  desc: '800 to 1,200 sqft' },
+      { val: '1,200-1,800',label: '1,200-1,800',desc: '1,200 to 1,800 sqft' },
+      { val: '1,800-2,500',label: '1,800-2,500',desc: '1,800 to 2,500 sqft' },
+      { val: '2,500-3,500',label: '2,500-3,500',desc: '2,500 to 3,500 sqft' },
       { val: 'Over 3,500', label: 'Over 3,500', desc: 'Over 3,500 sqft' }
     ]
   },
@@ -562,15 +568,15 @@ function renderS3() {
 // sqft val → PD lookup key by service
 function sqftToKey(svc, sqft) {
   if (svc === 'furnace' || svc === 'full_system') {
-    var map = { 'Under 800':'Under 800','800–1,200':'800–1,200','1,200–1,800':'1,200–1,800','1,800–2,500':'1,800–2,500','2,500–3,500':'2,500–3,500','Over 3,500':'Over 3,500' };
+    var map = { 'Under 800':'Under 800','800-1,200':'800-1,200','1,200-1,800':'1,200-1,800','1,800-2,500':'1,800-2,500','2,500-3,500':'2,500-3,500','Over 3,500':'Over 3,500' };
     return map[sqft] || sqft;
   }
   if (svc === 'ac') {
-    var acMap = { 'Under 1,200':'1.5T','1,200–2,000':'2T','2,000–3,000':'3T','Over 3,000':'4T' };
+    var acMap = { 'Under 1,200':'1.5T','1,200-2,000':'2T','2,000-3,000':'3T','Over 3,000':'4T' };
     return acMap[sqft] || sqft;
   }
   if (svc === 'heat_pump') {
-    var hpMap = { 'Under 800':'1.5T','800–1,200':'2T','1,200–2,000':'2.5T','2,000–3,000':'3T','Over 3,000':'4T' };
+    var hpMap = { 'Under 800':'1.5T','800-1,200':'2T','1,200-2,000':'2.5T','2,000-3,000':'3T','Over 3,000':'4T' };
     return hpMap[sqft] || sqft;
   }
   if (svc === 'air_handler') return sqft; // already '2T','3T','4T'
@@ -586,7 +592,7 @@ var calYear, calMonth, calSelectedDate, calSelectedTime;
 
 // ─── NAVIGATION ───────────────────────────────────────────────────────────────
 function showStep(n) {
-  // Reset S4 when navigating to it fresh — always show main 4 buttons
+  // Reset S4 when navigating to it fresh - always show main 4 buttons
   if (n === 4) {
     var mainDiv = document.getElementById('s4-main');
     var ductDiv = document.getElementById('s4-duct');
@@ -705,7 +711,7 @@ function showResults() {
   // Show results section immediately so error messages are visible
   document.getElementById('quiz').style.display = 'none';
   document.getElementById('results').style.display = 'block';
-  document.getElementById('tierRow').innerHTML = '<td colspan="3" style="text-align:center;padding:40px;color:#64748b">Loading your estimate…</td>';
+  document.getElementById('tierRow').innerHTML = '<td colspan="3" style="text-align:center;padding:40px;color:#64748b">Loading your estimate...</td>';
   fetchPricing(function(apiData) {
     window.__apiData = apiData || {};
     _showResultsInner();
@@ -758,7 +764,7 @@ function renderResults() {
   var bannerDuct = document.getElementById('bannerDuct');
   if (needsDuct && ductAdj > 0) {
     bannerDuct.style.display = 'block';
-    bannerDuct.innerHTML = '<strong>\u26a0 Ductwork + HERS Energy Test included in your estimate.</strong><br>Based on your home size, we\'ve added <strong>$' + ductAdj.toLocaleString() + '</strong> — covers full duct replacement and required HERS test. Confirmed on-site.';
+    bannerDuct.innerHTML = '<strong>\u26a0 Ductwork + HERS Energy Test included in your estimate.</strong><br>Based on your home size, we\'ve added <strong>$' + ductAdj.toLocaleString() + '</strong> - covers full duct replacement and required HERS test. Confirmed on-site.';
   } else { bannerDuct.style.display = 'none'; }
 
   var data = window.__apiData && window.__apiData.tiers;
@@ -779,7 +785,7 @@ function renderResults() {
       { key:'premium', label:'PREMIUM',     nameClass:'best-color', effCls:'eff-premium', effLevel:'Variable Speed', effSaving:'Better Comfort & Efficiency',  popLabel:'\u2605 Recommended' }
     ];
   } else if (isMiniSplit && msRooms >= 2) {
-    // Multi-zone: no Evolution multi-zone outdoor — 2 tiers only
+    // Multi-zone: no Evolution multi-zone outdoor - 2 tiers only
     tierDefs = [
       { key:'good',   label:'COMFORT',     nameClass:'good-color',   effCls:'eff-comfort',     effLevel:'Single Speed Heads',   effSaving:'Standard Wall Units',         popLabel:null },
       { key:'better', label:'PERFORMANCE', nameClass:'better-color', effCls:'eff-performance', effLevel:'Variable Speed Heads',  effSaving:'Better Comfort & Efficiency', popLabel:'\u2605 Recommended' }
@@ -804,7 +810,7 @@ function renderResults() {
     d = Object.assign({}, d);
     if (d.materials !== undefined && d.materialsCost === undefined) d.materialsCost = d.materials;
     if (d.permit !== undefined && d.permitCost === undefined) d.permitCost = d.permit;
-    if (!d.stage) d.stage = d.efficiency || d.desc || '—';
+    if (!d.stage) d.stage = d.efficiency || d.desc || '-';
     // Prices already calculated server-side
     var cardFB   = d.financedBase;
     var cardList = d.list;
@@ -848,7 +854,7 @@ function renderDetail() {
   var data = window.__apiData && window.__apiData.tiers;
   var d    = data && data[selectedTier];
   if (!d) return;
-  // Normalize field names — new PD uses different keys than old
+  // Normalize field names - new PD uses different keys than old
   d = Object.assign({}, d);
   if (d.materials !== undefined && d.materialsCost === undefined) d.materialsCost = d.materials;
   if (d.permit !== undefined && d.permitCost === undefined) d.permitCost = d.permit;
@@ -858,7 +864,7 @@ function renderDetail() {
   if (!d.series && d.outdoorSeries) d.series = d.outdoorSeries + (d.indoorSeries ? ' + ' + d.indoorSeries : '');
   if (!d.series && d.desc) d.series = d.desc;
   if (!d.model && d.outdoorModel) d.model = null; // handled separately in dev block
-  if (!d.stage) d.stage = d.efficiency || d.desc || '—';
+  if (!d.stage) d.stage = d.efficiency || d.desc || '-';
   if (!d.monthly) d.monthly = d.monthlyPayments && d.monthlyPayments.recommended && d.monthlyPayments.recommended.payment;
   if (!d.laborCost && d.laborHrs) d.laborCost = d.laborHrs * 650;
   var ductAdj2      = (window.__apiData && window.__apiData.ductwork) || 0;
@@ -913,13 +919,13 @@ function renderDetail() {
       html += '<div style="font-size:11px;color:#92400e;margin-bottom:10px;">\ud83c\udf21\ufe0f Model: <strong>' + d.model + '</strong></div>';
     }
     html += '<table style="width:100%;border-collapse:collapse;font-size:12px;">';
-    html += '<tr style="border-bottom:1px solid #fde68a"><td style="padding:5px 0;color:#475569;">Dealer Cost</td><td style="text-align:right;font-weight:600;color:#1a1a2e;">' + (d.dealerCost != null ? '$' + d.dealerCost.toLocaleString() : '—') + '</td></tr>';
-    html += '<tr style="border-bottom:1px solid #fde68a"><td style="padding:5px 0;color:#475569;">Equipment Sell (\u00d71.4)</td><td style="text-align:right;font-weight:600;color:#1a1a2e;">' + (d.equipSell != null ? '$' + d.equipSell.toLocaleString() : '—') + '</td></tr>';
-    html += '<tr style="border-bottom:1px solid #fde68a"><td style="padding:5px 0;color:#475569;">Materials (' + matPct + ' of equip sell)</td><td style="text-align:right;color:#64748b;">' + (d.materialsCost != null ? '$' + d.materialsCost.toLocaleString() : '—') + '</td></tr>';
+    html += '<tr style="border-bottom:1px solid #fde68a"><td style="padding:5px 0;color:#475569;">Dealer Cost</td><td style="text-align:right;font-weight:600;color:#1a1a2e;">' + (d.dealerCost != null ? '$' + d.dealerCost.toLocaleString() : '-') + '</td></tr>';
+    html += '<tr style="border-bottom:1px solid #fde68a"><td style="padding:5px 0;color:#475569;">Equipment Sell (\u00d71.4)</td><td style="text-align:right;font-weight:600;color:#1a1a2e;">' + (d.equipSell != null ? '$' + d.equipSell.toLocaleString() : '-') + '</td></tr>';
+    html += '<tr style="border-bottom:1px solid #fde68a"><td style="padding:5px 0;color:#475569;">Materials (' + matPct + ' of equip sell)</td><td style="text-align:right;color:#64748b;">' + (d.materialsCost != null ? '$' + d.materialsCost.toLocaleString() : '-') + '</td></tr>';
     html += '<tr style="border-bottom:1px solid #fde68a"><td style="padding:5px 0;color:#475569;">Labor (' + (d.laborHrs||'?') + ' hrs \u00d7 $650)</td><td style="text-align:right;color:#64748b;">' + (d.laborCost != null ? '$' + d.laborCost.toLocaleString() : '$' + ((d.laborHrs||0)*650).toLocaleString()) + '</td></tr>';
     html += '<tr style="border-bottom:1px solid #fde68a"><td style="padding:5px 0;color:#475569;">Permit</td><td style="text-align:right;color:#64748b;">' + (d.permitCost != null ? '$' + d.permitCost.toLocaleString() : '$450') + '</td></tr>';
     if (ductAdj2 > 0) { html += '<tr style="border-bottom:1px solid #fde68a"><td style="padding:5px 0;color:#475569;">Ductwork (incl. HERS)</td><td style="text-align:right;color:#0057b7;">$' + ductAdj2.toLocaleString() + '</td></tr>'; }
-    html += '<tr style="border-bottom:2px solid #f59e0b"><td style="padding:6px 0;color:#475569;font-weight:600;">Base Price</td><td style="text-align:right;font-weight:700;color:#475569;">' + (d.basePrice != null ? '$' + d.basePrice.toLocaleString() : '—') + '</td></tr>';
+    html += '<tr style="border-bottom:2px solid #f59e0b"><td style="padding:6px 0;color:#475569;font-weight:600;">Base Price</td><td style="text-align:right;font-weight:700;color:#475569;">' + (d.basePrice != null ? '$' + d.basePrice.toLocaleString() : '-') + '</td></tr>';
     html += '<tr style="border-bottom:1px solid #fde68a"><td style="padding:5px 0;color:#475569;">Financed Base (+8%)</td><td style="text-align:right;color:#0057b7;">$' + financedAmt.toLocaleString() + '</td></tr>';
     html += '<tr style="border-bottom:1px solid #fde68a"><td style="padding:5px 0;color:#475569;">List Price (+10%)</td><td style="text-align:right;color:#94a3b8;text-decoration:line-through;">$' + listPrice.toLocaleString() + '</td></tr>';
     html += '<tr style="border-bottom:1px solid #fde68a"><td style="padding:5px 0;color:#475569;">Sale Price (\u221210%)</td><td style="text-align:right;font-weight:700;color:#16a34a;">$' + customerPrice.toLocaleString() + '</td></tr>';
@@ -1009,7 +1015,7 @@ function confirmAppointment() {
   var dateStr = calSelectedDate.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'});
   var shortDate = calSelectedDate.toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'});
 
-  // Show success immediately — don't make customer wait on network
+  // Show success immediately - don't make customer wait on network
   document.getElementById('calSuccessName').textContent = A.name || 'there';
   document.getElementById('calSuccessDate').textContent = dateStr;
   document.getElementById('calSuccessTime').textContent = calSelectedTime;
@@ -1029,7 +1035,7 @@ function confirmAppointment() {
     tiers.push({ tier: td.tier, label: td.label, series: d.series||'', sale: d.sale, list: d.list, monthly: d.monthly, monthly999: d.monthly999 });
   }
 
-  // Fire notify — fully async, customer already sees success screen
+  // Fire notify - fully async, customer already sees success screen
   var notifyUrl = window.location.origin + (window.location.pathname.indexOf('/estimate') === 0 ? '/estimate/api/notify' : '/api/notify');
   var payload = {
     name: A.name, phone: A.phone, email: A.email, zip: A.zip,
