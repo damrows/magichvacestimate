@@ -483,6 +483,10 @@ function fetchPricing(cb) {
   xhr.onload = function() {
     try {
       var data = JSON.parse(xhr.responseText);
+      if (!data || !data.tiers) {
+        alert('API returned no tiers.\nURL: ' + apiUrl + '\nResponse: ' + xhr.responseText.slice(0,300));
+        cb(null); return;
+      }
       __apiCache[cacheKey] = data;
       cb(data);
     } catch(e) {
