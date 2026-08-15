@@ -3,20 +3,1079 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Magic Plumbing, Heating & Cooling</title>
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>HVAC Estimate | Magic Plumbing, Heating &amp; Cooling</title>
 <style>
-  body { margin:0; font-family:-apple-system,sans-serif; background:#0057b7; display:flex; align-items:center; justify-content:center; min-height:100vh; }
-  .box { text-align:center; color:#fff; padding:40px 20px; }
-  .box h1 { font-size:28px; margin:0 0 12px; }
-  .box p { font-size:16px; opacity:.8; margin:0 0 24px; }
-  .box a { color:#fff; font-weight:600; text-decoration:underline; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f7fa; color: #1a1a2e; min-height: 100vh; }
+#site-header { background:#fff; border-bottom:2px solid #e8ecf0; padding:14px 20px; display:flex; align-items:center; justify-content:space-between; position:sticky; top:0; z-index:100; box-shadow:0 2px 8px rgba(0,0,0,.07); }
+.logo-wrap { display:flex; align-items:center; gap:10px; }
+.logo-m { width:38px; height:38px; background:#0057b7; border-radius:10px; display:flex; align-items:center; justify-content:center; color:#fff; font-size:22px; font-weight:900; flex-shrink:0; }
+.logo-text { font-size:15px; font-weight:700; color:#0057b7; line-height:1.2; }
+.logo-sub { font-size:11px; font-weight:500; color:#64748b; }
+.header-phone a { color:#0057b7; font-weight:700; font-size:15px; text-decoration:none; }
+#progress-wrap { background:#fff; padding:8px 20px 10px; border-bottom:1px solid #e8ecf0; }
+#progLabel { font-size:12px; color:#64748b; font-weight:600; margin-bottom:5px; }
+#progBar { background:#e2e8f0; border-radius:999px; height:6px; overflow:hidden; }
+#progFill { height:100%; width:0%; background:linear-gradient(90deg,#0057b7,#f59e0b); border-radius:999px; transition:width .4s ease; }
+#main { max-width:580px; margin:0 auto; padding:24px 16px 60px; }
+.step-card { background:#fff; border-radius:20px; padding:28px 24px; box-shadow:0 4px 20px rgba(0,87,183,.08); }
+.step-card h2 { font-size:22px; font-weight:800; color:#1a1a2e; margin-bottom:6px; }
+.step-card .sub { font-size:14px; color:#64748b; margin-bottom:22px; }
+.opt-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+.opt-btn { background:#f8fafc; border:2px solid #e2e8f0; border-radius:14px; padding:16px 12px; text-align:center; cursor:pointer; transition:all .2s; position:relative; font-family:inherit; width:100%; }
+.opt-btn:hover { border-color:#0057b7; background:#eff6ff; transform:translateY(-1px); }
+.opt-btn.selected { border-color:#0057b7; background:#eff6ff; box-shadow:0 0 0 3px rgba(0,87,183,.15); }
+.opt-icon { font-size:28px; display:block; margin-bottom:8px; }
+.opt-label { font-size:13px; font-weight:700; color:#1a1a2e; line-height:1.3; }
+.opt-desc { font-size:11px; color:#64748b; margin-top:3px; }
+.pop-badge { position:absolute; top:-9px; left:50%; transform:translateX(-50%); background:#f59e0b; color:#fff; font-size:10px; font-weight:800; padding:2px 8px; border-radius:999px; white-space:nowrap; }
+.input-lg { width:100%; border:2px solid #e2e8f0; border-radius:12px; padding:16px; font-size:18px; font-family:inherit; text-align:center; color:#1a1a2e; outline:none; margin-bottom:16px; transition:border-color .2s; display:block; }
+.input-lg:focus { border-color:#0057b7; }
+.input-row { display:flex; flex-direction:column; gap:12px; margin-bottom:16px; }
+.input-field { width:100%; border:2px solid #e2e8f0; border-radius:12px; padding:14px 16px; font-size:16px; font-family:inherit; color:#1a1a2e; outline:none; transition:border-color .2s; }
+.input-field:focus { border-color:#0057b7; }
+.btn-primary { width:100%; padding:16px; background:linear-gradient(135deg,#0057b7,#0073e6); color:#fff; border:none; border-radius:14px; font-size:16px; font-weight:800; cursor:pointer; font-family:inherit; transition:all .2s; }
+.btn-primary:hover { transform:translateY(-1px); box-shadow:0 6px 20px rgba(0,87,183,.35); }
+/* ── RESULTS TRUST HEADER ── */
+.res-trust { background:#fff; border-radius:16px; padding:16px 20px; margin-bottom:20px; display:flex; align-items:center; gap:16px; }
+.res-trust-logo { width:120px; flex-shrink:0; }
+.res-trust-logo img { width:100%; height:auto; display:block; }
+.res-trust-name { font-size:15px; font-weight:600; color:#1a1a2e; }
+.res-trust-sub  { font-size:12px; color:#94a3b8; font-weight:400; margin-top:2px; }
+.res-trust-stars { display:flex; align-items:center; gap:5px; margin-top:5px; }
+.res-trust-star-row { color:#f59e0b; font-size:13px; }
+.res-trust-reviews { font-size:12px; color:#94a3b8; font-weight:400; }
+.res-trust-avail { margin-left:auto; text-align:right; flex-shrink:0; }
+.res-trust-avail-label { font-size:10px; color:#94a3b8; font-weight:500; letter-spacing:.05em; }
+.res-trust-avail-val { font-size:13px; font-weight:600; color:#16a34a; margin-top:2px; }
+/* ── RESULTS HEADLINE ── */
+.res-headline { margin-bottom:20px; }
+.res-headline h2 { font-size:22px; font-weight:700; color:#1a1a2e; margin-bottom:6px; line-height:1.3; }
+.res-headline p  { font-size:13px; color:#94a3b8; font-weight:400; line-height:1.6; }
+/* ── BANNERS ── */
+.banner { border-radius:12px; padding:12px 16px; font-size:13px; font-weight:500; margin-bottom:14px; }
+.banner-warn { background:#fef3c7; color:#92400e; border:1px solid #f59e0b; }
+.banner-duct { background:#dbeafe; color:#1e40af; border:1px solid #93c5fd; }
+/* ── TIER CARDS ── */
+.tier-grid { display:flex !important; flex-direction:row !important; gap:8px; margin-bottom:20px; align-items:stretch; }
+.tier-grid .tier-card { flex:1 1 0; min-width:0; }
+.tier-card { min-width:0; word-break:break-word; }
+.tier-card { background:#fff; border:1.5px solid #e2e8f0; border-radius:14px; padding:16px 8px 14px; text-align:center; cursor:pointer; transition:all .2s; position:relative; overflow:visible; }
+.tier-card:hover { border-color:#0057b7; }
+.tier-card.selected { border-color:#0057b7; box-shadow:0 0 0 4px rgba(0,87,183,.07); }
+.most-pop { position:absolute; top:-11px; left:50%; transform:translateX(-50%); background:linear-gradient(135deg,#f59e0b,#d97706); color:#fff; font-size:10px; font-weight:600; padding:3px 10px; border-radius:999px; white-space:nowrap; }
+.tier-name { font-size:10px; font-weight:600; letter-spacing:.1em; margin-bottom:2px; }
+.tier-name.good-color   { color:#94a3b8; }
+.tier-name.better-color { color:#0057b7; }
+.tier-name.best-color   { color:#d97706; }
+.tier-series { font-size:13px; font-weight:500; color:#1a1a2e; margin-bottom:10px; }
+.tier-eff-level   { font-size:11px; font-weight:500; margin-bottom:2px; }
+.tier-eff-saving  { font-size:11px; font-weight:600; margin-bottom:10px; }
+.eff-comfort      { color:#94a3b8; }
+.eff-performance  { color:#0057b7; }
+.eff-premium      { color:#16a34a; }
+.tier-list-price  { font-size:12px; color:#cbd5e1; text-decoration:line-through; margin-bottom:2px; }
+.tier-offer       { font-size:11px; font-weight:600; color:#dc2626; }
+.tier-expiry      { font-size:10px; color:#ef4444; font-weight:400; margin-bottom:8px; }
+.tier-price       { font-size:20px; font-weight:700; color:#1a1a2e; line-height:1; margin-bottom:3px; }
+.tier-price-label { font-size:11px; color:#94a3b8; font-weight:400; margin-bottom:10px; }
+.tier-avail       { font-size:11px; color:#16a34a; font-weight:500; margin-bottom:14px; }
+.tier-btn { width:100%; padding:10px 4px; border-radius:10px; border:1.5px solid #0057b7; background:#fff; color:#0057b7; font-size:12px; font-weight:600; cursor:pointer; font-family:inherit; transition:all .2s; }
+.tier-card.selected .tier-btn { background:#0057b7; color:#fff; }
+/* ── DETAIL PANEL ── */
+.detail-panel { background:#fff; border-radius:18px; padding:26px 22px; margin-bottom:20px; }
+.det-top { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:18px; }
+.det-label { font-size:10px; font-weight:500; color:#94a3b8; letter-spacing:.1em; margin-bottom:6px; }
+.det-mo { display:flex; align-items:flex-end; gap:4px; }
+.det-mo-num  { font-size:38px; font-weight:700; color:#1a1a2e; line-height:1; }
+.det-mo-unit { font-size:18px; color:#94a3b8; font-weight:400; margin-bottom:5px; }
+.det-mo-terms { font-size:12px; color:#94a3b8; font-weight:400; margin-top:4px; }
+.det-house { width:90px; height:90px; border-radius:50%; overflow:hidden; flex-shrink:0; border:2px solid #e2e8f0; }
+.det-house img { width:100%; height:100%; object-fit:cover; object-position:center top; }
+.det-sep { border:none; border-top:1px solid #f1f5f9; margin:16px 0; }
+.det-range-row { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:14px; flex-wrap:wrap; gap:8px; }
+.det-range .label { font-size:11px; font-weight:500; color:#94a3b8; margin-bottom:2px; }
+.det-range .val   { font-size:15px; font-weight:600; color:#1a1a2e; }
+.det-alts { display:flex; gap:16px; }
+.det-alt .r { font-size:14px; font-weight:500; color:#64748b; }
+.det-alt .t { font-size:11px; color:#94a3b8; font-weight:400; }
+.price-match { border:1px solid #f1f5f9; border-radius:8px; padding:10px 14px; font-size:12px; color:#94a3b8; font-weight:400; text-align:center; margin-bottom:18px; }
+.det-rows-label { font-size:10px; font-weight:500; color:#94a3b8; letter-spacing:.1em; margin-bottom:10px; }
+.det-rows .row { display:flex; justify-content:space-between; align-items:center; padding:13px 0; border-bottom:1px solid #f8fafc; }
+.det-rows .row:last-child { border-bottom:none; }
+.row-left .name { font-size:14px; font-weight:500; color:#1a1a2e; }
+.row-left .sub  { font-size:12px; color:#94a3b8; font-weight:400; margin-top:3px; }
+.row-val        { font-size:14px; font-weight:600; }
+.row-val.disc   { color:#16a34a; }
+.row-val.inc    { color:#0057b7; }
+/* ── BOOKING BOX ── */
+.booking-box { background:#f8faff; border:1px solid #e8f0fe; border-radius:16px; padding:22px; margin-bottom:18px; }
+.booking-box-title { font-size:17px; font-weight:600; color:#1a1a2e; margin-bottom:6px; }
+.booking-box-sub   { font-size:13px; color:#64748b; font-weight:400; margin-bottom:16px; line-height:1.6; }
+.booking-badges { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:18px; }
+.booking-badge  { background:#fff; border:1px solid #e2e8f0; border-radius:8px; padding:6px 12px; font-size:11px; color:#64748b; font-weight:500; }
+.booking-cta { width:100%; background:linear-gradient(135deg,#16a34a,#15803d); color:#fff; border:none; border-radius:12px; padding:17px; font-size:16px; font-weight:600; cursor:pointer; font-family:inherit; letter-spacing:.01em; }
+.booking-cta-sub { text-align:center; font-size:11px; color:#94a3b8; font-weight:400; margin-top:9px; }
+.link-back { display:block; text-align:center; color:#94a3b8; font-size:12px; font-weight:400; cursor:pointer; text-decoration:none; margin-top:14px; }
+.link-back:hover { color:#0057b7; }
+.res-disclaimer { font-size:11px; color:#94a3b8; font-weight:400; text-align:center; line-height:1.7; margin-top:16px; }
+#calModal { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,.5); z-index:1000; overflow-y:auto; justify-content:center; align-items:flex-start; padding:20px; }
+.cal-inner { background:#fff; border-radius:20px; max-width:500px; width:100%; padding:28px 24px; margin:auto; }
+.cal-top { display:flex; justify-content:space-between; align-items:center; margin-bottom:20px; }
+.cal-top h3 { font-size:18px; font-weight:800; color:#1a1a2e; }
+.cal-close { border:none; background:none; font-size:24px; cursor:pointer; color:#64748b; line-height:1; }
+.cal-nav { display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; }
+.cal-nav-btn { border:1px solid #e2e8f0; background:#f8fafc; border-radius:8px; padding:6px 14px; cursor:pointer; font-size:16px; font-family:inherit; }
+.cal-nav-btn:hover { background:#eff6ff; border-color:#0057b7; }
+#calMonthLabel { font-weight:800; font-size:16px; color:#1a1a2e; }
+.cal-header { display:grid; grid-template-columns:repeat(7,1fr); gap:4px; margin-bottom:6px; }
+.cal-daylabel { text-align:center; font-size:11px; font-weight:700; color:#94a3b8; padding:4px 0; }
+.cal-grid { display:grid; grid-template-columns:repeat(7,1fr); gap:4px; }
+.cal-day { aspect-ratio:1; display:flex; align-items:center; justify-content:center; border-radius:8px; font-size:13px; font-weight:600; cursor:pointer; border:2px solid transparent; transition:all .15s; }
+.cal-day:hover:not(.disabled) { border-color:#0057b7; background:#eff6ff; }
+.cal-day.selected { background:#0057b7; color:#fff; border-color:#0057b7; }
+.cal-day.disabled { color:#cbd5e1; cursor:default; }
+.slots-title { font-size:13px; font-weight:700; color:#475569; margin-bottom:8px; }
+.slot-btn { display:block; width:100%; padding:11px 14px; margin-bottom:8px; border:2px solid #e2e8f0; border-radius:10px; background:#f8fafc; font-size:14px; font-weight:600; cursor:pointer; font-family:inherit; text-align:left; transition:all .15s; }
+.slot-btn:hover { border-color:#0057b7; background:#eff6ff; }
+.slot-btn.selected { border-color:#0057b7; background:#eff6ff; color:#0057b7; font-weight:800; }
+#calConfirmBtn { width:100%; margin-top:20px; padding:16px; background:#f59e0b; border:none; border-radius:12px; font-size:16px; font-weight:800; cursor:pointer; font-family:inherit; transition:all .2s; color:#fff; }
+#calConfirmBtn:disabled { background:#cbd5e1; cursor:default; color:#94a3b8; }
+#calConfirmBtn:not(:disabled):hover { background:#d97706; }
+#calSuccess { display:none; text-align:center; padding:20px 0; }
+.done-icon { font-size:52px; margin-bottom:16px; }
+#calSuccess h2 { font-size:26px; font-weight:900; color:#22c55e; margin-bottom:12px; }
+#calSuccess p { font-size:14px; color:#475569; margin-bottom:8px; line-height:1.5; }
+#calSuccess a { color:#0057b7; font-weight:700; }
+.btn-done { margin-top:20px; padding:14px 32px; background:#0057b7; color:#fff; border:none; border-radius:12px; font-size:16px; font-weight:700; cursor:pointer; font-family:inherit; }
+@media(max-width:480px){.step-card{padding:20px 16px;}.opt-grid{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
-<div class="box">
-  <h1>Magic Plumbing, Heating &amp; Cooling</h1>
-  <p>Our online estimate tool is temporarily unavailable.<br>We'll be back shortly.</p>
-  <p><a href="tel:+14155551234">Call us: (415) 555-1234</a></p>
+
+<header id="site-header">
+  <div class="logo-wrap">
+    <img src="/estimate/Logo_HVAC_trimmed.png" alt="Magic Plumbing" style="height:40px;width:auto;display:block;" onerror="this.outerHTML='<div style=&quot;display:flex;align-items:center;gap:10px&quot;><div class=&quot;logo-m&quot;>M</div><div><div class=&quot;logo-text&quot;>Magic Plumbing</div><div class=&quot;logo-sub&quot;>Heating &amp; Cooling</div></div></div>'">
+  </div>
+  <div class="header-phone">
+    <a href="tel:+18007800110">&#128222; (800)&nbsp;780-0110</a>
+  </div>
+</header>
+
+<div id="progress-wrap">
+  <div id="progLabel">Step 1 of 7</div>
+  <div id="progBar"><div id="progFill"></div></div>
 </div>
+
+<div id="main">
+
+  <!-- QUIZ -->
+  <div id="quiz">
+
+    <div id="s1" style="display:block">
+      <div class="step-card">
+        <h2>What service do you need?</h2>
+        <p class="sub">Select the equipment you want replaced or installed.</p>
+        <div class="opt-grid">
+          <button class="opt-btn" data-val="furnace" onclick="pick('service',this.dataset.val,this)">
+            <span class="opt-icon">&#128293;</span>
+            <div class="opt-label">Furnace Replacement</div>
+          </button>
+          <button class="opt-btn" data-val="ac" onclick="pick('service',this.dataset.val,this)">
+            <span class="opt-icon">&#10052;</span>
+            <div class="opt-label">AC Replacement</div>
+          </button>
+          <button class="opt-btn" style="position:relative" data-val="full_system" onclick="pick('service',this.dataset.val,this)">
+            <span class="pop-badge">&#11088; Most Popular</span>
+            <span class="opt-icon">&#127777;</span>
+            <div class="opt-label">Full System</div>
+            <div class="opt-desc">AC + Furnace</div>
+          </button>
+          <button class="opt-btn" data-val="heat_pump" onclick="pick('service',this.dataset.val,this)">
+            <span class="opt-icon">&#9842;</span>
+            <div class="opt-label">Heat Pump</div>
+          </button>
+          <button class="opt-btn" data-val="mini_split" onclick="pick('service',this.dataset.val,this)">
+            <span class="opt-icon">&#127744;</span>
+            <div class="opt-label">Mini Split / Ductless</div>
+          </button>
+          <button class="opt-btn" data-val="air_handler" onclick="pick('service',this.dataset.val,this)">
+            <span class="opt-icon">&#128168;</span>
+            <div class="opt-label">Air Handler + Coil</div>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="s2" style="display:none">
+      <div class="step-card">
+        <h2>How many rooms or zones?</h2>
+        <p class="sub">Each room or zone gets its own indoor unit.</p>
+        <div class="opt-grid">
+          <button class="opt-btn" data-val="1" onclick="pickRooms('1',this)">
+            <span class="opt-icon">1️⃣</span>
+            <div class="opt-label">1 Room</div>
+          </button>
+          <button class="opt-btn" data-val="2" onclick="pickRooms('2',this)">
+            <span class="opt-icon">2️⃣</span>
+            <div class="opt-label">2 Rooms</div>
+          </button>
+          <button class="opt-btn" data-val="3" onclick="pickRooms('3',this)">
+            <span class="opt-icon">3️⃣</span>
+            <div class="opt-label">3 Rooms</div>
+          </button>
+          <button class="opt-btn" data-val="4" onclick="pickRooms('4',this)">
+            <span class="opt-icon">4️⃣</span>
+            <div class="opt-label">4 Rooms</div>
+          </button>
+          <button class="opt-btn" data-val="5" onclick="pickRooms('5',this)">
+            <span class="opt-icon">5️⃣</span>
+            <div class="opt-label">5 Rooms</div>
+          </button>
+          <button class="opt-btn" data-val="6" onclick="pickRooms('6',this)">
+            <span class="opt-icon">6️⃣</span>
+            <div class="opt-label">6 Rooms</div>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="s3" style="display:none">
+      <div class="step-card">
+        <h2 id="s3-title">What&#8217;s the square footage?</h2>
+        <p class="sub" id="s3-sub">Choose the closest range for your home.</p>
+        <div class="opt-grid" id="s3-grid"><!-- rendered by renderS3() --></div>
+      </div>
+    </div>
+
+    <div id="s4" style="display:none">
+      <div class="step-card">
+        <h2 id="s4-title">What&#8217;s the installation situation?</h2>
+        <p class="sub" id="s4-sub">This helps us give you an accurate price.</p>
+        <!-- Main situation buttons -->
+        <div class="opt-grid" id="s4-main">
+          <button class="opt-btn" data-val="straight_swap" onclick="pickSituation('straight_swap',this)">
+            <span class="opt-icon">&#9989;</span>
+            <div class="opt-label">Straight Swap</div>
+            <div class="opt-desc">Replacing an existing unit</div>
+          </button>
+          <button class="opt-btn" data-val="needs_ductwork" onclick="pickSituation('needs_ductwork',this)">
+            <span class="opt-icon">&#128679;</span>
+            <div class="opt-label">Needs Ductwork</div>
+            <div class="opt-desc">Includes full duct replacement + HERS test</div>
+          </button>
+          <button class="opt-btn" data-val="new_install" onclick="pickSituation('new_install',this)">
+            <span class="opt-icon">&#127968;</span>
+            <div class="opt-label">New Install</div>
+            <div class="opt-desc">No existing system</div>
+          </button>
+          <button class="opt-btn" data-val="emergency" onclick="pickSituation('emergency',this)">
+            <span class="opt-icon">&#128680;</span>
+            <div class="opt-label">Emergency</div>
+            <div class="opt-desc">System failed &mdash; need it fast</div>
+          </button>
+        </div>
+        <!-- New Install ductwork follow-up (hidden until New Install picked) -->
+        <div id="s4-duct" style="display:none;margin-top:20px;">
+          <p style="font-weight:600;color:#1a1a2e;margin-bottom:12px;">Does the home have existing ductwork?</p>
+          <div class="opt-grid">
+            <button class="opt-btn" onclick="pickNewInstallDuct(false,this)">
+              <span class="opt-icon">&#10060;</span>
+              <div class="opt-label">No Ductwork</div>
+              <div class="opt-desc">Includes full duct replacement + HERS test</div>
+            </button>
+            <button class="opt-btn" onclick="pickNewInstallDuct(true,this)">
+              <span class="opt-icon">&#9989;</span>
+              <div class="opt-label">Has Ductwork</div>
+              <div class="opt-desc">Existing ducts are usable</div>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="s5" style="display:none">
+      <div class="step-card">
+        <h2>What&#8217;s your timeline?</h2>
+        <p class="sub">Knowing your urgency helps us schedule your estimate.</p>
+        <div class="opt-grid">
+          <button class="opt-btn" data-val="asap" onclick="pick('timeline',this.dataset.val,this)">
+            <span class="opt-icon">&#9889;</span>
+            <div class="opt-label">ASAP</div>
+            <div class="opt-desc">Need it done now</div>
+          </button>
+          <button class="opt-btn" data-val="this_week" onclick="pick('timeline',this.dataset.val,this)">
+            <span class="opt-icon">&#128198;</span>
+            <div class="opt-label">This Week</div>
+          </button>
+          <button class="opt-btn" data-val="this_month" onclick="pick('timeline',this.dataset.val,this)">
+            <span class="opt-icon">&#128197;</span>
+            <div class="opt-label">This Month</div>
+          </button>
+          <button class="opt-btn" data-val="planning" onclick="pick('timeline',this.dataset.val,this)">
+            <span class="opt-icon">&#129300;</span>
+            <div class="opt-label">Just Planning</div>
+            <div class="opt-desc">Getting info</div>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="s6" style="display:none">
+      <div class="step-card">
+        <h2>What&#8217;s your zip code?</h2>
+        <p class="sub">We use this to confirm availability in your area.</p>
+        <input type="text" id="zipInput" class="input-lg" maxlength="5" placeholder="e.g. 94114" inputmode="numeric"
+          onkeydown="if(event.key==='Enter') advanceZip()">
+        <button class="btn-primary" onclick="advanceZip()">Continue &#8594;</button>
+      </div>
+    </div>
+
+    <div id="s7" style="display:none">
+      <div class="step-card">
+        <h2>Almost there! Who should we contact?</h2>
+        <p class="sub">We&#8217;ll send your personalized estimate to this info.</p>
+        <div class="input-row">
+          <input type="text" id="cName" class="input-field" placeholder="Your Name">
+          <input type="tel" id="cPhone" class="input-field" placeholder="Phone Number">
+          <input type="email" id="cEmail" class="input-field" placeholder="Email Address">
+        </div>
+        <button class="btn-primary" onclick="advanceContact()">See My Estimate &#8594;</button>
+      </div>
+    </div>
+
+  </div><!-- #quiz -->
+
+  <!-- RESULTS -->
+  <div id="results" style="display:none">
+
+    <!-- Trust header -->
+    <div class="res-trust">
+      <div class="res-trust-logo"><img src="/estimate/Logo_HVAC_trimmed.png" alt="Magic Plumbing" onerror="this.parentElement.innerHTML='<div style=\'width:52px;height:52px;background:#0057b7;border-radius:10px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:22px;font-weight:900\'>M</div>'"></div>
+      <div>
+        <div class="res-trust-name">Magic Plumbing, Heating &amp; Cooling</div>
+        <div class="res-trust-sub">Serving the San Francisco Bay Area since 2002</div>
+        <div class="res-trust-stars">
+          <span class="res-trust-star-row">★★★★★</span>
+          <span class="res-trust-reviews">4.9 &middot; 1,900+ Google Reviews</span>
+        </div>
+      </div>
+      <div class="res-trust-avail">
+        <div class="res-trust-avail-label">NEXT AVAILABLE</div>
+        <div class="res-trust-avail-val" id="nextAvailDate"></div>
+      </div>
+    </div>
+
+    <!-- Headline -->
+    <div class="res-headline">
+      <h2 id="resHeader">Your custom options are ready.</h2>
+      <p>We matched three systems to your home size. All prices include installation, permits, and our full warranty. Pick the one that fits — no commitment until you’re ready.</p>
+    </div>
+
+    <!-- Banners -->
+    <div id="bannerLarge" class="banner banner-warn" style="display:none">
+      &#9888; Homes over 3,500 sqft may require 2 systems for proper coverage. Your consultant will confirm on-site.
+    </div>
+    <div id="bannerDuct" class="banner banner-duct" style="display:none"></div>
+
+    <!-- Tier cards -->
+    <table id="tierGrid" style="width:100%;border-collapse:separate;border-spacing:8px 0;margin-bottom:20px;table-layout:fixed;"><tbody><tr id="tierRow"></tr></tbody></table>
+
+    <!-- Detail panel -->
+    <div class="detail-panel" id="detailPanel"></div>
+
+    <!-- Booking box -->
+    <div class="booking-box">
+      <div class="booking-box-title">Your Free In-Home Estimate</div>
+      <div class="booking-box-sub">We visit, measure your home, and give you an exact price — no surprises, no pressure, nothing to sign on the spot.</div>
+
+      <button class="booking-cta" onclick="openCalendar()">Reserve This Offer →</button>
+      <div class="booking-cta-sub">Takes less than 60 seconds &middot; We’ll call to confirm your time</div>
+    </div>
+
+    <a class="link-back" href="#" onclick="resetA();showStep(1);return false;">&#8592; Start Over</a>
+    <div class="res-disclaimer">Every home is different. Pricing above is a starting estimate based on your home size — final pricing is confirmed at your free in-home visit, with no obligation to proceed. CA License #698806</div>
+
+  </div><!-- #results -->
+
+</div><!-- #main -->
+
+<!-- CALENDAR MODAL -->
+<div id="calModal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.5);z-index:1000;overflow-y:auto;justify-content:center;align-items:flex-start;padding:20px">
+  <div class="cal-inner">
+    <div id="calBookingForm">
+      <div class="cal-top">
+        <h3>Book Your Free Appointment</h3>
+        <button class="cal-close" onclick="closeCalendar()">&times;</button>
+      </div>
+      <div class="cal-nav">
+        <button class="cal-nav-btn" onclick="calNav(-1)">&#8592;</button>
+        <strong id="calMonthLabel"></strong>
+        <button class="cal-nav-btn" onclick="calNav(1)">&#8594;</button>
+      </div>
+      <div class="cal-header">
+        <div class="cal-daylabel">Su</div><div class="cal-daylabel">Mo</div><div class="cal-daylabel">Tu</div>
+        <div class="cal-daylabel">We</div><div class="cal-daylabel">Th</div><div class="cal-daylabel">Fr</div>
+        <div class="cal-daylabel">Sa</div>
+      </div>
+      <div class="cal-grid" id="calGrid"></div>
+      <div id="calTimeSlots" style="display:none;margin-top:16px">
+        <div class="slots-title">Choose a time window:</div>
+        <button class="slot-btn" data-time="8am – 10am" onclick="pickSlot(this)">&#9728; Morning &nbsp;&nbsp; 8am – 10am</button>
+        <button class="slot-btn" data-time="10am – 12pm" onclick="pickSlot(this)">&#9728; Late Morning &nbsp;&nbsp; 10am – 12pm</button>
+        <button class="slot-btn" data-time="12pm – 2pm" onclick="pickSlot(this)">&#9749; Afternoon &nbsp;&nbsp; 12pm – 2pm</button>
+        <button class="slot-btn" data-time="2pm – 4pm" onclick="pickSlot(this)">&#9786; Late Afternoon &nbsp;&nbsp; 2pm – 4pm</button>
+      </div>      <button id="calConfirmBtn" onclick="confirmAppointment()" disabled>Confirm Appointment</button>
+    </div>
+    <div id="calSuccess" style="display:none;text-align:center;padding:20px 0">
+      <div class="done-icon">&#9989;</div>
+      <h2>You&#8217;re booked!</h2>
+      <p>Hi <strong id="calSuccessName"></strong>, your appointment is confirmed for:</p>
+      <p>&#128197; <strong id="calSuccessDate"></strong></p>
+      <p>&#9200; <strong id="calSuccessTime"></strong></p>
+      <p>We&#8217;ll call you at <strong id="calSuccessPhone"></strong> to confirm.</p>
+      <p>Questions? Call us: <a href="tel:+18007800110">(800) 780-0110</a></p>
+      <button class="btn-done" onclick="emailEstimate()" id="emailEstimateBtn">&#128140; Email My Estimate</button>
+      <div id="emailStatus" style="font-size:13px;margin-top:10px;"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+var PD = null; // Pricing data is server-side only
+var __apiCache = {}; // Cache API responses
+
+function fetchPricing(cb) {
+  var cacheKey = A.service + '|' + (A.sqft||'') + '|' + (A.rooms||'') + '|' + (A.current||'');
+  if (__apiCache[cacheKey]) { cb(__apiCache[cacheKey]); return; }
+  var apiUrl = window.location.origin + '/api/price';
+  var apiBody = JSON.stringify({ service: A.service, sqft: A.sqft, rooms: A.rooms, current: A.current, dev: isDevMode() });
+  var xhr = new XMLHttpRequest();
+  xhr.open('POST', apiUrl, true);
+  xhr.setRequestHeader('Content-Type', 'application/json');
+  xhr.onload = function() {
+    try {
+      var data = JSON.parse(xhr.responseText);
+      __apiCache[cacheKey] = data;
+      cb(data);
+    } catch(e) {
+      cb(null);
+    }
+  };
+  xhr.onerror = function() { cb(null); };
+  xhr.ontimeout = function() { cb(null); };
+  xhr.send(apiBody);
+}
+// ─── STATE ───────────────────────────────────────────────────────────────────
+var A = { service:null, building:null, sqft:null, rooms:null, current:null, timeline:null, zip:null, name:null, phone:null, email:null };
+// Service-specific Step 3 config
+var S3_CONFIG = {
+  furnace:    { title: "What's the square footage?", sub: "Choose the closest range for your home.",
+    buttons: [
+      { val: 'Under 800',   label: 'Under 800',   desc: 'Studio / small home' },
+      { val: '800–1,200',  label: '800–1,200',  desc: '800 to 1,200 sqft' },
+      { val: '1,200–1,800',label: '1,200–1,800',desc: '1,200 to 1,800 sqft' },
+      { val: '1,800–2,500',label: '1,800–2,500',desc: '1,800 to 2,500 sqft' },
+      { val: '2,500–3,500',label: '2,500–3,500',desc: '2,500 to 3,500 sqft' },
+      { val: 'Over 3,500', label: 'Over 3,500', desc: 'Over 3,500 sqft' }
+    ]
+  },
+  ac:         { title: "What's the square footage?", sub: "Choose the closest range for your home.",
+    buttons: [
+      { val: 'Under 1,200', label: 'Under 1,200', desc: 'Up to 1,200 sqft' },
+      { val: '1,200–2,000', label: '1,200–2,000', desc: '1,200 to 2,000 sqft' },
+      { val: '2,000–3,000', label: '2,000–3,000', desc: '2,000 to 3,000 sqft' },
+      { val: 'Over 3,000',  label: 'Over 3,000',  desc: 'Over 3,000 sqft' }
+    ]
+  },
+  heat_pump:  { title: "What's the square footage?", sub: "Choose the closest range for your home.",
+    buttons: [
+      { val: 'Under 800',   label: 'Under 800',   desc: 'Studio / small home' },
+      { val: '800–1,200',  label: '800–1,200',  desc: '800 to 1,200 sqft' },
+      { val: '1,200–2,000',label: '1,200–2,000',desc: '1,200 to 2,000 sqft' },
+      { val: '2,000–3,000',label: '2,000–3,000',desc: '2,000 to 3,000 sqft' },
+      { val: 'Over 3,000', label: 'Over 3,000', desc: 'Over 3,000 sqft' }
+    ]
+  },
+  full_system:{ title: "What's the square footage?", sub: "Choose the closest range for your home.",
+    buttons: [
+      { val: 'Under 800',   label: 'Under 800',   desc: 'Studio / small home' },
+      { val: '800–1,200',  label: '800–1,200',  desc: '800 to 1,200 sqft' },
+      { val: '1,200–1,800',label: '1,200–1,800',desc: '1,200 to 1,800 sqft' },
+      { val: '1,800–2,500',label: '1,800–2,500',desc: '1,800 to 2,500 sqft' },
+      { val: '2,500–3,500',label: '2,500–3,500',desc: '2,500 to 3,500 sqft' },
+      { val: 'Over 3,500', label: 'Over 3,500', desc: 'Over 3,500 sqft' }
+    ]
+  },
+  air_handler:{ title: 'What size is your home?', sub: 'Select the range that best fits.',
+    buttons: [
+      { val: '2T', label: 'Small',  desc: 'Up to 1,200 sqft' },
+      { val: '3T', label: 'Medium', desc: '1,200 to 2,500 sqft' },
+      { val: '4T', label: 'Large',  desc: 'Over 2,500 sqft' }
+    ]
+  }
+};
+
+function renderS3() {
+  var svc = A.service;
+  var cfg = S3_CONFIG[svc] || S3_CONFIG.furnace;
+  document.getElementById('s3-title').textContent = cfg.title;
+  document.getElementById('s3-sub').textContent = cfg.sub;
+  var html = '';
+  cfg.buttons.forEach(function(b) {
+    html += '<button class="opt-btn" data-val="' + b.val + '" onclick="pick(\'sqft\',this.dataset.val,this)">' +
+      '<span class="opt-icon">&#128208;</span>' +
+      '<div class="opt-label">' + b.label + '</div>' +
+      '<div class="opt-desc">' + b.desc + '</div>' +
+      '</button>';
+  });
+  document.getElementById('s3-grid').innerHTML = html;
+}
+
+// sqft val → PD lookup key by service
+function sqftToKey(svc, sqft) {
+  if (svc === 'furnace' || svc === 'full_system') {
+    var map = { 'Under 800':'Under 800','800–1,200':'800–1,200','1,200–1,800':'1,200–1,800','1,800–2,500':'1,800–2,500','2,500–3,500':'2,500–3,500','Over 3,500':'Over 3,500' };
+    return map[sqft] || sqft;
+  }
+  if (svc === 'ac') {
+    var acMap = { 'Under 1,200':'1.5T','1,200–2,000':'2T','2,000–3,000':'3T','Over 3,000':'4T' };
+    return acMap[sqft] || sqft;
+  }
+  if (svc === 'heat_pump') {
+    var hpMap = { 'Under 800':'1.5T','800–1,200':'2T','1,200–2,000':'2.5T','2,000–3,000':'3T','Over 3,000':'4T' };
+    return hpMap[sqft] || sqft;
+  }
+  if (svc === 'air_handler') return sqft; // already '2T','3T','4T'
+  return sqft;
+}
+
+function resetA() { A = { service:null, building:null, sqft:null, rooms:null, current:null, timeline:null, zip:null, name:null, phone:null, email:null }; selectedTier = null; }
+var currentStep = 1;
+var selectedTier = null;
+var calYear, calMonth, calSelectedDate, calSelectedTime;
+
+// ─── PRICING DATA (from pricing-data.js) ─────────────────────────────────────
+
+// ─── NAVIGATION ───────────────────────────────────────────────────────────────
+function showStep(n) {
+  // Reset S4 follow-up when navigating to it fresh
+  if (n === 4) {
+    var ductDiv = document.getElementById('s4-duct');
+    if (ductDiv) ductDiv.style.display = 'none';
+    var title = document.getElementById('s4-title');
+    if (title) title.textContent = "What's the installation situation?";
+    var sub = document.getElementById('s4-sub');
+    if (sub) sub.textContent = 'This helps us give you an accurate price.';
+    var btns = document.querySelectorAll('#s4-main .opt-btn, #s4-duct .opt-btn');
+    for (var i = 0; i < btns.length; i++) btns[i].style.borderColor = '';
+  }
+  for (var i = 1; i <= 7; i++) {
+    document.getElementById('s' + i).style.display = (i === n) ? 'block' : 'none';
+  }
+  document.getElementById('quiz').style.display = 'block';
+  document.getElementById('results').style.display = 'none';
+  currentStep = n;
+  // Progress: mini-split = S1,S2,S5,S6,S7 (5 steps); others = S1,S3,S4,S5,S6,S7 (6 steps)
+  var isMini = (A.service === 'mini_split');
+  var isAH   = (A.service === 'air_handler');
+  var stepMap = (isMini || isAH)
+    ? {1:1, 2:2, 3:2, 5:3, 6:4, 7:5}
+    : {1:1, 3:2, 4:3, 5:4, 6:5, 7:6};
+  var total = (isMini || isAH) ? 5 : 6;
+  var display = stepMap[n] || n;
+  var pct = Math.round((display / total) * 100);
+  document.getElementById('progFill').style.width = pct + '%';
+  document.getElementById('progLabel').textContent = 'Step ' + display + ' of ' + total;
+  window.scrollTo(0, 0);
+}
+
+function pick(key, val, btn) {
+  A[key] = val;
+  var btns = btn.parentElement.querySelectorAll('.opt-btn');
+  for (var i = 0; i < btns.length; i++) btns[i].style.borderColor = '';
+  btn.style.borderColor = '#0057b7';
+  setTimeout(function() {
+    if (key === 'service') {
+      selectedTier = null; // reset on every new service selection
+      if (val === 'mini_split') {
+        showStep(2);
+      } else {
+        A.building = 'single_family';
+        renderS3();
+        showStep(3);
+      }
+    } else if (key === 'sqft') {
+      // air_handler skips install situation (S4) — goes straight to timeline
+      if (A.service === 'air_handler') {
+        A.current = 'straight_swap';
+        showStep(5);
+      } else {
+        showStep(4);
+      }
+    } else {
+      showStep(currentStep + 1);
+    }
+  }, 220);
+}
+
+function pickSituation(val, btn) {
+  // Highlight selected button
+  var btns = btn.parentElement.querySelectorAll('.opt-btn');
+  for (var i = 0; i < btns.length; i++) btns[i].style.borderColor = '';
+  btn.style.borderColor = '#0057b7';
+
+  if (val === 'new_install') {
+    // Show ductwork follow-up inline, don't advance yet
+    document.getElementById('s4-duct').style.display = 'block';
+    document.getElementById('s4-title').textContent = 'New Install — one more question';
+    document.getElementById('s4-sub').textContent = 'This affects your total price.';
+    A.current = 'new_install';
+  } else {
+    // All other situations advance immediately
+    document.getElementById('s4-duct').style.display = 'none';
+    A.current = val;
+    setTimeout(function() { showStep(5); }, 220);
+  }
+}
+
+function pickNewInstallDuct(hasDuct, btn) {
+  // hasDuct=true means existing usable ducts, false means needs new ductwork
+  var btns = btn.parentElement.querySelectorAll('.opt-btn');
+  for (var i = 0; i < btns.length; i++) btns[i].style.borderColor = '';
+  btn.style.borderColor = '#0057b7';
+  A.current = hasDuct ? 'new_install' : 'needs_ductwork';
+  setTimeout(function() { showStep(5); }, 220);
+}
+
+function pickRooms(val, btn) {
+  A.rooms = val;
+  selectedTier = null; // reset so renderResults picks correct default for room count
+  var roomToSqft = { '1':'Under 800', '2':'800\u20131,200', '3':'1,200\u20131,800', '4':'1,800\u20132,500', '5':'2,500\u20133,500', '6':'Over 3,500' };
+  A.sqft = roomToSqft[val] || 'Under 800';
+  var btns = btn.parentElement.querySelectorAll('.opt-btn');
+  for (var i = 0; i < btns.length; i++) btns[i].style.borderColor = '';
+  btn.style.borderColor = '#0057b7';
+  setTimeout(function() { showStep(5); }, 220);
+}
+
+function advanceZip() {
+  var val = document.getElementById('zipInput').value.replace(/\D/g, '');
+  if (val.length < 4) {
+    document.getElementById('zipInput').style.borderColor = '#ef4444';
+    document.getElementById('zipInput').focus();
+    return;
+  }
+  document.getElementById('zipInput').style.borderColor = '';
+  A.zip = val;
+  showStep(7);
+}
+
+function advanceContact() {
+  var name = document.getElementById('cName').value.trim();
+  var phone = document.getElementById('cPhone').value.trim();
+  var email = document.getElementById('cEmail').value.trim();
+  if (!name || !phone) { alert('Please enter your name and phone number.'); return; }
+  A.name = name; A.phone = phone; A.email = email;
+  showResults();
+}
+
+// ─── RESULTS ──────────────────────────────────────────────────────────────────
+function showResults() {
+  __apiCache = {};
+  // Show results section immediately so error messages are visible
+  document.getElementById('quiz').style.display = 'none';
+  document.getElementById('results').style.display = 'block';
+  document.getElementById('tierRow').innerHTML = '<td colspan="3" style="text-align:center;padding:40px;color:#64748b">Loading your estimate…</td>';
+  fetchPricing(function(apiData) {
+    window.__apiData = apiData || {};
+    _showResultsInner();
+  });
+}
+function _showResultsInner() {
+  document.getElementById('quiz').style.display = 'none';
+  document.getElementById('results').style.display = 'block';
+  document.getElementById('progFill').style.width = '100%';
+  document.getElementById('progLabel').textContent = 'Your Estimate';
+  var firstName = A.name ? A.name.trim().split(/\s+/)[0] : '';
+  var svcLabel = {
+    furnace:     'Furnace',
+    ac:          'Air Conditioning',
+    heat_pump:   'Heat Pump',
+    full_system: 'Full HVAC System',
+    air_handler: 'Air Handler',
+    mini_split:  'Mini Split'
+  }[A.service] || 'HVAC';
+  var headerText = firstName
+    ? firstName + ', your ' + svcLabel + ' options are ready.'
+    : 'Your ' + svcLabel + ' options are ready.';
+  document.getElementById('resHeader').textContent = headerText;
+  var nd = new Date(); nd.setDate(nd.getDate() + 1);
+  if (nd.getDay() === 0) nd.setDate(nd.getDate() + 1);
+  if (nd.getDay() === 6) nd.setDate(nd.getDate() + 2);
+  document.getElementById('nextAvailDate').textContent = nd.toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'});
+  renderResults();
+  window.scrollTo(0, 0);
+}
+
+function fmt(n)   { return '$' + Math.round(n).toLocaleString(); }
+function fmtMo(n) { return '$' + Math.round(n) + '/mo'; }
+function calcMo(amt,aprPct,months){aprPct=aprPct||6.99;months=months||144;if(aprPct===0)return Math.round(amt/months);var r=(aprPct/100)/12;return Math.round(amt*(r*Math.pow(1+r,months))/(Math.pow(1+r,months)-1));}
+function isDevMode() {
+  var p = new URLSearchParams(window.location.search).get('dev');
+  if (p === '1') { localStorage.setItem('hv_dev','1'); return true; }
+  if (p === '0') { localStorage.removeItem('hv_dev'); return false; }
+  return localStorage.getItem('hv_dev') === '1';
+}
+
+function lookupData() { return null; } // replaced by fetchPricing API
+
+function renderResults() {
+  var data = window.__apiData && window.__apiData.tiers;
+  if (!data) { document.getElementById('tierRow').innerHTML = '<td colspan="3" style="text-align:center;padding:40px;color:red;">Loading pricing... if this persists, refresh the page.</td>'; return; }
+  var needsDuct = (A.current === 'needs_ductwork');
+  document.getElementById('bannerLarge').style.display = (A.sqft === 'Over 3,500') ? 'block' : 'none';
+  var ductAdj = (window.__apiData && window.__apiData.ductwork) || 0;
+  var bannerDuct = document.getElementById('bannerDuct');
+  if (needsDuct && ductAdj > 0) {
+    bannerDuct.style.display = 'block';
+    bannerDuct.innerHTML = '<strong>\u26a0 Ductwork + HERS Energy Test included in your estimate.</strong><br>Based on your home size, we\'ve added <strong>$' + ductAdj.toLocaleString() + '</strong> — covers full duct replacement and required HERS test. Confirmed on-site.';
+  } else { bannerDuct.style.display = 'none'; }
+
+  var data = window.__apiData && window.__apiData.tiers;
+  var exp  = new Date(); exp.setDate(exp.getDate() + 10);
+  var expStr = exp.toLocaleDateString('en-US',{month:'short',day:'numeric'});
+  var nd = new Date(); nd.setDate(nd.getDate() + 1);
+  if (nd.getDay() === 0) nd.setDate(nd.getDate() + 1);
+  if (nd.getDay() === 6) nd.setDate(nd.getDate() + 2);
+  var availStr = '\u2713 Available ' + nd.toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'});
+
+  var isAirHandler = (A.service === 'air_handler');
+  var isMiniSplit   = (A.service === 'mini_split');
+  var msRooms = parseInt(A.rooms || '1', 10);
+  var tierDefs;
+  if (isAirHandler) {
+    tierDefs = [
+      { key:'comfort', label:'COMFORT',     nameClass:'good-color', effCls:'eff-comfort', effLevel:'Single Speed',   effSaving:'Standard Fan Coil',           popLabel:null },
+      { key:'premium', label:'PREMIUM',     nameClass:'best-color', effCls:'eff-premium', effLevel:'Variable Speed', effSaving:'Better Comfort & Efficiency',  popLabel:'\u2605 Recommended' }
+    ];
+  } else if (isMiniSplit && msRooms >= 2) {
+    // Multi-zone: no Evolution multi-zone outdoor — 2 tiers only
+    tierDefs = [
+      { key:'good',   label:'COMFORT',     nameClass:'good-color',   effCls:'eff-comfort',     effLevel:'Single Speed Heads',   effSaving:'Standard Wall Units',         popLabel:null },
+      { key:'better', label:'PERFORMANCE', nameClass:'better-color', effCls:'eff-performance', effLevel:'Variable Speed Heads',  effSaving:'Better Comfort & Efficiency', popLabel:'\u2605 Recommended' }
+    ];
+  } else {
+    tierDefs = [
+      { key:'good',   label:'COMFORT',     nameClass:'good-color',   effCls:'eff-comfort',     effLevel:'Standard Efficiency', effSaving:'Standard Energy Use', popLabel:null },
+      { key:'better', label:'PERFORMANCE', nameClass:'better-color', effCls:'eff-performance', effLevel:'High Efficiency',     effSaving:'~20% Energy Savings', popLabel:'\u2605 Best Value' },
+      { key:'best',   label:'PREMIUM',     nameClass:'best-color',   effCls:'eff-premium',     effLevel:'Maximum Efficiency',  effSaving:'~35% Energy Savings', popLabel:null }
+    ];
+  }
+
+  var ductAdjCard = (window.__apiData && window.__apiData.ductwork) || 0;
+  var needsDuctCard = ductAdjCard > 0;
+
+  var html = '';
+  for (var i = 0; i < tierDefs.length; i++) {
+    var t  = tierDefs[i];
+    var d  = data && data[t.key];
+    if (!d || !d.sale) continue;
+    // Normalize field names
+    d = Object.assign({}, d);
+    if (d.materials !== undefined && d.materialsCost === undefined) d.materialsCost = d.materials;
+    if (d.permit !== undefined && d.permitCost === undefined) d.permitCost = d.permit;
+    if (!d.stage) d.stage = d.efficiency || d.desc || '—';
+    // Prices already calculated server-side
+    var cardFB   = d.financedBase;
+    var cardList = d.list;
+    var cardSale = d.sale;
+    var isSel = (selectedTier === t.key) || (!selectedTier && t.key === 'better');
+    var btnLabel = t.label.charAt(0) + t.label.slice(1).toLowerCase();
+    html += '<td style="vertical-align:top;padding:0;"><div class="tier-card' + (isSel ? ' selected' : '') + '" id="tc_' + t.key + '" onclick="selectTier(\'' + t.key + '\')">';
+    if (t.popLabel) html += '<div class="most-pop">' + t.popLabel + '</div>';
+    html += '<div class="tier-name ' + t.nameClass + '">' + t.label + '</div>';
+
+    html += '<div class="tier-eff-level ' + t.effCls + '">' + t.effLevel + '</div>';
+    html += '<div class="tier-eff-saving ' + t.effCls + '">' + t.effSaving + '</div>';
+    html += '<div class="tier-list-price">' + fmt(cardList) + '</div>';
+    html += '<div class="tier-offer">Limited Time \u2014 10% Off</div>';
+    html += '<div class="tier-expiry">Expires ' + expStr + '</div>';
+    html += '<div class="tier-price">' + fmt(cardSale) + '</div>';
+    html += '<div class="tier-price-label">installed &bull; ' + (d.series || d.stage || d.efficiency || '') + '</div>';
+    html += '<div class="tier-avail">' + availStr + '</div>';
+    html += '<button class="tier-btn">Select ' + btnLabel + '</button>';
+    html += '</div></td>';
+  }
+  document.getElementById('tierRow').innerHTML = html;
+  // Always reset selectedTier to a valid key for this service/room combo
+  var validKeys = tierDefs.map(function(t){return t.key;});
+  if (!selectedTier || validKeys.indexOf(selectedTier) === -1) {
+    selectedTier = isAirHandler ? 'premium' : 'better';
+  }
+  renderDetail();
+}
+
+function selectTier(key) {
+  selectedTier = key;
+  var cards = document.querySelectorAll('.tier-card');
+  for (var i = 0; i < cards.length; i++) cards[i].classList.remove('selected');
+  var el = document.getElementById('tc_' + key);
+  if (el) el.classList.add('selected');
+  renderDetail();
+}
+
+function renderDetail() {
+  var data = window.__apiData && window.__apiData.tiers;
+  var d    = data && data[selectedTier];
+  if (!d) return;
+  // Normalize field names — new PD uses different keys than old
+  d = Object.assign({}, d);
+  if (d.materials !== undefined && d.materialsCost === undefined) d.materialsCost = d.materials;
+  if (d.permit !== undefined && d.permitCost === undefined) d.permitCost = d.permit;
+  if (typeof d.monthly === 'number' && !d.monthlyPayments) {
+    d.monthlyPayments = { recommended: { payment: d.monthly }, promo: { payment: Math.round(d.financedBase / 12) }, standard: { payment: calcMo(d.financedBase, 9.99, 120) } };
+  }
+  if (!d.series && d.outdoorSeries) d.series = d.outdoorSeries + (d.indoorSeries ? ' + ' + d.indoorSeries : '');
+  if (!d.series && d.desc) d.series = d.desc;
+  if (!d.model && d.outdoorModel) d.model = null; // handled separately in dev block
+  if (!d.stage) d.stage = d.efficiency || d.desc || '—';
+  if (!d.monthly) d.monthly = d.monthlyPayments && d.monthlyPayments.recommended && d.monthlyPayments.recommended.payment;
+  if (!d.laborCost && d.laborHrs) d.laborCost = d.laborHrs * 650;
+  var ductAdj2      = (window.__apiData && window.__apiData.ductwork) || 0;
+  var financedAmt   = d.financedBase;
+  var listPrice     = d.list;
+  var customerPrice = d.sale;
+  var disc          = listPrice - customerPrice;
+  var mo699         = d.monthly || calcMo(financedAmt, 6.99, 144);
+  var mo999         = d.monthly999 || calcMo(financedAmt, 9.99, 120);
+  var exp           = new Date(); exp.setDate(exp.getDate() + 10);
+  var expStr        = exp.toLocaleDateString('en-US',{month:'short',day:'numeric'});
+  var lowD          = Math.round(customerPrice * 0.92 / 100) * 100;
+  var highD         = Math.round(customerPrice * 1.08 / 100) * 100;
+  var html = '';
+  html += '<div class="det-top">';
+  html += '<div>';
+
+  html += '<div class="det-mo"><div class="det-mo-num">$' + mo699 + '</div><div class="det-mo-unit">/mo</div></div>';
+  html += '<div style="font-size:11px;color:#94a3b8;font-weight:400;margin-top:2px;">per month</div>';
+  html += '<div class="det-mo-terms">12 years &middot; 6.99% APR &middot; financing subject to approval</div>';
+  html += '</div><div class="det-house"><img src="/estimate/paul-hero.png" alt="Magic Plumbing Tech"></div></div>';
+  html += '<hr class="det-sep">';
+  html += '<div class="det-range-row">';
+  html += '<div class="det-range"><div class="label">Price Range</div><div class="val">' + fmt(lowD) + ' \u2013 ' + fmt(highD) + '</div></div>';
+  html += '<div class="det-alts"><div class="det-alt"><div class="r">$' + mo999 + '/mo</div><div class="t">10yr &middot; 9.99%</div></div></div>';
+  html += '</div>';
+  html += '<div class="price-match">Not happy with the price? Call us \u2014 we\'ll make it work.</div>';
+  html += '<div class="det-rows-label">WHAT\'S INCLUDED</div>';
+  html += '<div class="det-rows">';
+  if (ductAdj2 > 0) {
+    html += '<div class="row"><div class="row-left"><div class="name">\ud83d\udee0\ufe0f Ductwork Replacement</div><div class="sub">Full replacement + HERS Energy Test</div></div><div class="row-val" style="color:#1a1a2e">+' + fmt(ductAdj2) + '</div></div>';
+  }
+  html += '<div class="row"><div class="row-left"><div class="name">\ud83c\udff7\ufe0f Limited Time Offer</div><div class="sub">10% off system &middot; Expires ' + expStr + '</div></div><div class="row-val disc">\u2013' + fmt(disc) + '</div></div>';
+  html += '<div class="row"><div class="row-left"><div class="name">\ud83d\udee1\ufe0f Warranty</div><div class="sub">10-Year Parts &middot; 2-Year Labor</div></div><div class="row-val inc">Included</div></div>';
+  html += '<div class="row"><div class="row-left"><div class="name">\ud83c\udf21\ufe0f Maintenance Plan</div><div class="sub">1-Year &middot; 2 visits included</div></div><div class="row-val disc">Saves $325</div></div>';
+  html += '<div class="row"><div class="row-left"><div class="name">\ud83d\udd27 Permit &amp; Inspection</div><div class="sub">Filed and managed by us</div></div><div class="row-val inc">Included</div></div>';
+  html += '</div>';
+
+  if (isDevMode()) {
+    var matPct = (A.service === 'mini_split') ? '30%' : '25%';
+    html += '<div style="margin-top:20px;border:2px dashed #f59e0b;border-radius:12px;padding:16px;background:#fffbeb;">';
+    html += '<div style="font-size:11px;font-weight:700;color:#92400e;letter-spacing:.08em;margin-bottom:6px;">\ud83d\udd0d DEV \u2014 QUOTE BREAKDOWN</div>';
+    var sizeLabel = (A.service === 'mini_split') ? (A.rooms + ' Room' + (A.rooms > 1 ? 's' : '')) : (d.btu || d.sqft || A.sqft || '\u2014');
+    html += '<div style="font-size:11px;color:#92400e;margin-bottom:10px;">Size: ' + sizeLabel + ' &bull; Series: ' + (d.series || d.desc || '\u2014') + ' &bull; ' + (d.laborHrs||'?') + 'hrs @ $650/hr</div>';
+    if (d.outdoorModel || d.indoorModel) {
+      html += '<div style="font-size:11px;color:#92400e;margin-bottom:10px;">';
+      if (d.outdoorModel) html += '\ud83c\udf21\ufe0f Outdoor: <strong>' + d.outdoorModel + '</strong>';
+      if (d.outdoorModel && d.indoorModel) html += ' &nbsp;&bull;&nbsp; ';
+      if (d.indoorModel) html += '\ud83c\udfe0 Indoor: <strong>' + d.indoorModel + '</strong>';
+      html += '</div>';
+    } else if (d.model) {
+      html += '<div style="font-size:11px;color:#92400e;margin-bottom:10px;">\ud83c\udf21\ufe0f Model: <strong>' + d.model + '</strong></div>';
+    }
+    html += '<table style="width:100%;border-collapse:collapse;font-size:12px;">';
+    html += '<tr style="border-bottom:1px solid #fde68a"><td style="padding:5px 0;color:#475569;">Dealer Cost</td><td style="text-align:right;font-weight:600;color:#1a1a2e;">' + (d.dealerCost != null ? '$' + d.dealerCost.toLocaleString() : '—') + '</td></tr>';
+    html += '<tr style="border-bottom:1px solid #fde68a"><td style="padding:5px 0;color:#475569;">Equipment Sell (\u00d71.4)</td><td style="text-align:right;font-weight:600;color:#1a1a2e;">' + (d.equipSell != null ? '$' + d.equipSell.toLocaleString() : '—') + '</td></tr>';
+    html += '<tr style="border-bottom:1px solid #fde68a"><td style="padding:5px 0;color:#475569;">Materials (' + matPct + ' of equip sell)</td><td style="text-align:right;color:#64748b;">' + (d.materialsCost != null ? '$' + d.materialsCost.toLocaleString() : '—') + '</td></tr>';
+    html += '<tr style="border-bottom:1px solid #fde68a"><td style="padding:5px 0;color:#475569;">Labor (' + (d.laborHrs||'?') + ' hrs \u00d7 $650)</td><td style="text-align:right;color:#64748b;">' + (d.laborCost != null ? '$' + d.laborCost.toLocaleString() : '$' + ((d.laborHrs||0)*650).toLocaleString()) + '</td></tr>';
+    html += '<tr style="border-bottom:1px solid #fde68a"><td style="padding:5px 0;color:#475569;">Permit</td><td style="text-align:right;color:#64748b;">' + (d.permitCost != null ? '$' + d.permitCost.toLocaleString() : '$450') + '</td></tr>';
+    if (ductAdj2 > 0) { html += '<tr style="border-bottom:1px solid #fde68a"><td style="padding:5px 0;color:#475569;">Ductwork (incl. HERS)</td><td style="text-align:right;color:#0057b7;">$' + ductAdj2.toLocaleString() + '</td></tr>'; }
+    html += '<tr style="border-bottom:2px solid #f59e0b"><td style="padding:6px 0;color:#475569;font-weight:600;">Base Price</td><td style="text-align:right;font-weight:700;color:#475569;">' + (d.basePrice != null ? '$' + d.basePrice.toLocaleString() : '—') + '</td></tr>';
+    html += '<tr style="border-bottom:1px solid #fde68a"><td style="padding:5px 0;color:#475569;">Financed Base (+8%)</td><td style="text-align:right;color:#0057b7;">$' + financedAmt.toLocaleString() + '</td></tr>';
+    html += '<tr style="border-bottom:1px solid #fde68a"><td style="padding:5px 0;color:#475569;">List Price (+10%)</td><td style="text-align:right;color:#94a3b8;text-decoration:line-through;">$' + listPrice.toLocaleString() + '</td></tr>';
+    html += '<tr style="border-bottom:1px solid #fde68a"><td style="padding:5px 0;color:#475569;">Sale Price (\u221210%)</td><td style="text-align:right;font-weight:700;color:#16a34a;">$' + customerPrice.toLocaleString() + '</td></tr>';
+    html += '<tr style="border-bottom:1px solid #fde68a"><td style="padding:5px 0;color:#475569;">Monthly @ 6.99% / 12yr</td><td style="text-align:right;font-weight:600;color:#0057b7;">$' + mo699 + '/mo</td></tr>';
+    html += '<tr><td style="padding:5px 0;color:#475569;">Monthly @ 9.99% / 10yr</td><td style="text-align:right;color:#64748b;">$' + mo999 + '/mo</td></tr>';
+    html += '</table></div>';
+  }
+  document.getElementById('detailPanel').innerHTML = html;
+}
+
+// ─── CALENDAR ─────────────────────────────────────────────────────────────────
+function openCalendar() {
+  var today = new Date();
+  calYear = today.getFullYear();
+  calMonth = today.getMonth();
+  calSelectedDate = null;
+  calSelectedTime = null;
+  renderCal();
+  document.getElementById('calBookingForm').style.display = 'block';
+  document.getElementById('calSuccess').style.display = 'none';
+  document.getElementById('calModal').style.display = 'flex';
+}
+
+function closeCalendar() {
+  document.getElementById('calModal').style.display = 'none';
+}
+
+function calNav(dir) {
+  calMonth += dir;
+  if (calMonth > 11) { calMonth = 0; calYear++; }
+  if (calMonth < 0)  { calMonth = 11; calYear--; }
+  calSelectedDate = null;
+  calSelectedTime = null;
+  document.getElementById('calTimeSlots').style.display = 'none';
+  document.getElementById('calConfirmBtn').disabled = true;
+  renderCal();
+}
+
+function renderCal() {
+  var months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  document.getElementById('calMonthLabel').textContent = months[calMonth] + ' ' + calYear;
+  var today = new Date(); today.setHours(0,0,0,0);
+  var first = new Date(calYear, calMonth, 1);
+  var daysInMonth = new Date(calYear, calMonth+1, 0).getDate();
+  var startDow = first.getDay();
+  var html = '';
+  for (var i = 0; i < startDow; i++) html += '<div></div>';
+  for (var d = 1; d <= daysInMonth; d++) {
+    var dt = new Date(calYear, calMonth, d);
+    var isPast = dt < today;
+    var isToday = dt.getTime() === today.getTime();
+    var dow = dt.getDay();
+    var isWeekend = (dow === 0 || dow === 6);
+    var disabled = isPast || isWeekend;
+    var cls = 'cal-day';
+    if (disabled) cls += ' disabled';
+    if (calSelectedDate && calSelectedDate.getTime() === dt.getTime()) cls += ' selected';
+    if (disabled) {
+      html += '<div class="' + cls + '">' + d + '</div>';
+    } else {
+      html += '<div class="' + cls + '" onclick="pickDay(' + calYear + ',' + calMonth + ',' + d + ')">' + d + '</div>';
+    }
+  }
+  document.getElementById('calGrid').innerHTML = html;
+}
+
+function pickDay(y, m, d) {
+  calSelectedDate = new Date(y, m, d);
+  calSelectedTime = null;
+  var slots = document.querySelectorAll('.slot-btn');
+  for (var i = 0; i < slots.length; i++) slots[i].classList.remove('selected');
+  document.getElementById('calConfirmBtn').disabled = true;
+  document.getElementById('calTimeSlots').style.display = 'block';
+  renderCal();
+}
+
+function pickSlot(btn) {
+  var slots = document.querySelectorAll('.slot-btn');
+  for (var i = 0; i < slots.length; i++) slots[i].classList.remove('selected');
+  btn.classList.add('selected');
+  calSelectedTime = btn.dataset.time;
+  document.getElementById('calConfirmBtn').disabled = false;
+}
+
+function confirmAppointment() {
+  if (!calSelectedDate || !calSelectedTime) return;
+  var dateStr = calSelectedDate.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'});
+  document.getElementById('calSuccessName').textContent = A.name || 'there';
+  document.getElementById('calSuccessDate').textContent = dateStr;
+  document.getElementById('calSuccessTime').textContent = calSelectedTime;
+  document.getElementById('calSuccessPhone').textContent = A.phone || '';
+  document.getElementById('calBookingForm').style.display = 'none';
+  document.getElementById('calSuccess').style.display = 'block';
+}
+
+function doneBooking() {
+  closeCalendar();
+}
+
+function emailEstimate() {
+  var btn = document.getElementById('emailEstimateBtn');
+  var status = document.getElementById('emailStatus');
+  btn.disabled = true;
+  btn.textContent = 'Sending...';
+  status.textContent = '';
+
+  // Reuse same lookupData() the results page uses
+  var data = window.__apiData && window.__apiData.tiers;
+  var tierDefs = [
+    { tier: 'good',   label: 'Good' },
+    { tier: 'better', label: 'Better' },
+    { tier: 'best',   label: 'Best' }
+  ];
+  var tiers = [];
+  for (var i = 0; i < tierDefs.length; i++) {
+    var td = tierDefs[i];
+    var d = data && data[td.tier];
+    if (!d || !d.sale) continue;
+    tiers.push({
+      tier: td.tier, label: td.label,
+      series: d.series || '', stage: d.stage || d.efficiency || '',
+      sale: d.sale, list: d.list, financedBase: d.financedBase,
+      monthly: d.monthly, monthly999: d.monthly999,
+      low:  Math.round(d.sale * 0.92 / 100) * 100,
+      high: Math.round(d.sale * 1.08 / 100) * 100
+    });
+  }
+
+  var apptDateEl = document.getElementById('calSuccessDate');
+  var apptTimeEl = document.getElementById('calSuccessTime');
+  var apptDate = apptDateEl ? apptDateEl.textContent : '';
+  var apptTime = apptTimeEl ? apptTimeEl.textContent : '';
+
+  var payload = {
+    name: A.name, email: A.email, phone: A.phone, zip: A.zip,
+    service: A.service, building: A.building, sqft: A.sqft,
+    current: A.current, timeline: A.timeline,
+    tiers: tiers, ductAdj: 0,
+    apptDate: apptDate, apptTime: apptTime
+  };
+
+  fetch('/api/email', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload)
+  })
+  .then(function(r) { return r.json(); })
+  .then(function(res) {
+    if (res.ok) {
+      btn.textContent = '\u2705 Sent to ' + A.email;
+      status.style.color = '#16a34a';
+      status.textContent = 'Check your inbox \u2014 your estimate is on its way!';
+    } else {
+      throw new Error(res.error || 'Send failed');
+    }
+  })
+  .catch(function() {
+    btn.disabled = false;
+    btn.textContent = '\ud83d\udce7 Email My Estimate';
+    status.style.color = '#dc2626';
+    status.textContent = 'Could not send \u2014 please call (800) 780-0110.';
+  });
+}
+
+// ─── SESSION RESTORE ─────────────────────────────────────────────────────────
+(function() {
+  var sess = window.__ESTIMATE_SESSION__;
+  if (!sess || !sess.answers) { showStep(1); return; }
+  // Restore saved answers and jump straight to results
+  A = Object.assign(A, sess.answers);
+  showResults();
+})();
+</script>
 </body>
 </html>

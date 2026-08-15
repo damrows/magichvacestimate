@@ -1,0 +1,2 @@
+# No external dependencies — uses Python stdlib only
+# SendGrid email uses urllib (built-in)
