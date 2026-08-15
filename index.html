@@ -601,13 +601,12 @@ function showStep(n) {
   document.getElementById('quiz').style.display = 'block';
   document.getElementById('results').style.display = 'none';
   currentStep = n;
-  // Progress: mini-split = S1,S2,S5,S6,S7 (5 steps); others = S1,S3,S4,S5,S6,S7 (6 steps)
+  // Progress: mini-split = S1,S2,S5,S6,S7 (5 steps); others incl air_handler = S1,S3,S4,S5,S6,S7 (6 steps)
   var isMini = (A.service === 'mini_split');
-  var isAH   = (A.service === 'air_handler');
-  var stepMap = (isMini || isAH)
+  var stepMap = isMini
     ? {1:1, 2:2, 3:2, 5:3, 6:4, 7:5}
     : {1:1, 3:2, 4:3, 5:4, 6:5, 7:6};
-  var total = (isMini || isAH) ? 5 : 6;
+  var total = isMini ? 5 : 6;
   var display = stepMap[n] || n;
   var pct = Math.round((display / total) * 100);
   document.getElementById('progFill').style.width = pct + '%';
@@ -631,13 +630,8 @@ function pick(key, val, btn) {
         showStep(3);
       }
     } else if (key === 'sqft') {
-      // air_handler skips install situation (S4) — goes straight to timeline
-      if (A.service === 'air_handler') {
-        A.current = 'straight_swap';
-        showStep(5);
-      } else {
-        showStep(4);
-      }
+      // All services including air_handler go through S4 installation situation
+      showStep(4);
     } else {
       showStep(currentStep + 1);
     }
