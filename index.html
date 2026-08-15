@@ -776,10 +776,6 @@ function renderResults() {
   if (nd.getDay() === 0) nd.setDate(nd.getDate() + 1);
   if (nd.getDay() === 6) nd.setDate(nd.getDate() + 2);
   var availStr = '\u2713 Available ' + nd.toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'});
-  // Update booking box sub with next available day
-  var seeYouDay = nd.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric'});
-  var bookingSub = document.getElementById('bookingBoxSub');
-  if (bookingSub) bookingSub.innerHTML = '&#128205; <strong>What happens next:</strong> Your comfort advisor will visit your home, take measurements, and confirm your final price. The estimate you saw today reflects typical pricing for your home size &mdash; no surprises, nothing to sign until you&#8217;re ready. See you <strong>' + seeYouDay + '</strong>!';
 
   var isAirHandler = (A.service === 'air_handler');
   var isMiniSplit   = (A.service === 'mini_split');
