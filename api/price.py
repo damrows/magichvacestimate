@@ -169,6 +169,7 @@ class handler(BaseHTTPRequestHandler):
 
         service = body.get("service", "")
         sqft = body.get("sqft", "")
+        sqft = sqft.replace("-", "\u2013") if sqft else sqft  # normalize hyphens to en-dashes
         rooms = str(body.get("rooms") or "1")
         current = body.get("current", "")
         is_dev = body.get("dev", False)
